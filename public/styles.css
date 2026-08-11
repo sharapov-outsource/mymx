@@ -1,0 +1,11 @@
+/* ==========================================================================
+   mymx — the little that the shared stylesheet does not already draw.
+   The SPF expansion uses the generic .tree from /static/kit/base.css.
+   ========================================================================== */
+
+/* A record is a whole line of text rather than a value beside a label. */
+#spf-record .kv .val { text-align: start; max-width: 100%; word-break: break-word }
+
+/* The expansion is read as a budget, so the lookup number wants to stand out. */
+.tree li > .meta { font-family: var(--font-mono) }
+.tree li.bad > .meta { color: var(--bad) }
