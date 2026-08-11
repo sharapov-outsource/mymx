@@ -807,4 +807,383 @@ OWN.ru = {
   fd_rdns_none_confirmed: 'Круговую проверку не проходит ни один адрес. Ждите задержек доставки и попадания в спам у получателей, которые это учитывают.',
 };
 
+OWN.es = {
+  title: 'Comprobación de correo — SPF, DKIM, DMARC, MTA-STS y DANE de cualquier dominio',
+  title_short: 'Comprobación de correo',
+  h1: 'Comprobación de correo',
+  subtitle: 'SPF desplegado a través de cada include y contado contra el límite de diez, alineación y notificación DMARC, y la seguridad del transporte comprobada sobre la conexión real',
+  ph_host: 'example.com',
+  hero_label: 'Dominio comprobado',
+  empty_hint: 'Introduzca un nombre de dominio. La comprobación despliega el registro SPF a través de cada include, prueba los selectores DKIM que usan las grandes plataformas, lee la política DMARC, descarga la política MTA-STS por HTTPS y abre sesiones SMTP de solo lectura con los servidores de correo. Nunca se envía ningún mensaje.',
+
+  stage_resolve: 'buscando los servidores de correo',
+  stage_mx: 'comprobando el conjunto MX',
+  stage_spf: 'desplegando SPF',
+  stage_dkim: 'buscando claves DKIM',
+  stage_dmarc: 'leyendo la política DMARC',
+  stage_mtasts: 'descargando la política MTA-STS',
+  stage_dane: 'comprobando DANE',
+  stage_starttls: 'hablando con los servidores de correo',
+  stage_grade: 'calificando',
+
+  card_grade: 'Desglose de la nota',
+  card_mx: 'Servidores de correo',
+  card_spf: 'SPF',
+  card_spf_tree: 'Despliegue de SPF',
+  card_dkim: 'DKIM',
+  card_dmarc: 'DMARC',
+  card_transport: 'Seguridad del transporte',
+  card_sessions: 'Sesiones SMTP',
+  card_rdns: 'DNS inverso',
+
+  comp_authentication: 'Autenticación',
+  comp_transport: 'Transporte',
+  comp_hygiene: 'Higiene',
+
+  k_mx_count: 'Registros MX',
+  k_null_mx: 'MX nulo',
+  k_ipv6_mx: 'Accesibles por IPv6',
+  k_spf_record: 'Registro',
+  k_spf_lookups: 'Consultas DNS usadas',
+  k_spf_voids: 'Consultas vacías',
+  k_spf_policy: 'Por defecto para los demás',
+  k_dkim_keys: 'Claves encontradas',
+  k_dkim_tried: 'Selectores probados',
+  k_dkim_strongest: 'Clave más fuerte',
+  k_dmarc_policy: 'Política',
+  k_dmarc_subdomain: 'Política para subdominios',
+  k_dmarc_percent: 'Se aplica al',
+  k_dmarc_alignment: 'Alineación (DKIM / SPF)',
+  k_dmarc_rua: 'Informes agregados a',
+  k_dmarc_ruf: 'Informes forenses a',
+  k_dmarc_external: 'Notificación externa autorizada',
+  k_mtasts: 'MTA-STS',
+  k_mtasts_mode: 'Modo',
+  k_mtasts_id: 'Id de la política',
+  k_mtasts_maxage: 'Se guarda durante',
+  k_tlsrpt: 'TLS-RPT',
+  k_dane: 'DANE (TLSA)',
+  k_dane_covered: 'Servidores cubiertos',
+  k_starttls: 'STARTTLS',
+  k_port25: 'Puerto 25 saliente',
+  k_open_relay: 'Retransmisión abierta',
+  k_rdns_confirmed: 'Confirmado hacia delante',
+  k_queries: 'Consultas realizadas',
+
+  th_priority: 'Prioridad',
+  th_host: 'Host',
+  th_addresses: 'Direcciones',
+  th_port: 'Puerto',
+  th_tls: 'TLS',
+  th_banner: 'Saludo',
+  th_extensions: 'Anunciado',
+  th_selector: 'Selector',
+  th_key_type: 'Clave',
+  th_bits: 'Bits',
+  th_state: 'Estado',
+  th_address: 'Dirección',
+  th_ptr: 'PTR',
+  th_confirmed: 'Confirmado',
+  th_term: 'Término',
+  th_lookup: 'Consulta',
+
+  pol_none: 'none — solo observación',
+  pol_quarantine: 'quarantine — a la carpeta de correo no deseado',
+  pol_reject: 'reject — rechazar',
+  spfp_pass: 'admitir a todos (+all)',
+  spfp_fail: 'rechazar (-all)',
+  spfp_softfail: 'fallo suave (~all)',
+  spfp_neutral: 'neutral (?all)',
+  spfp_redirect: 'delegado mediante redirect',
+  spfterm_no_target: 'sin destino',
+  spfterm_loop: 'bucle — ya visitado',
+  spfterm_lookup_failed: 'la consulta falló',
+  spfterm_no_spf_record: 'allí no hay registro SPF',
+
+  stsmode_enforce: 'enforce — aplicar',
+  stsmode_testing: 'testing — solo informes',
+  stsmode_none: 'none — desactivada',
+  rdns_confirmed: 'confirmado',
+  rdns_unconfirmed: 'no resuelve de vuelta',
+  rdns_missing: 'sin PTR',
+  rdns_unknown: 'sin comprobar',
+  v_of_limit: '{used} de {limit}',
+  v_percent: '{n} %',
+  v_days_short: '{n} d',
+  v_blocked_here: 'bloqueado desde nuestra red',
+  v_no_selector_found: 'ninguno de los {n} selectores conocidos',
+
+  note_spf: 'El RFC 7208 permite diez términos con consulta DNS en toda la evaluación, siguiendo cada include dentro de cada include. Pasados los diez, un receptor debe devolver permerror — y un permerror significa que SPF no se aplica en absoluto, exactamente como si no hubiera registro.',
+  note_dmarc: 'Con p=none no se aplica nada: un mensaje que falla la alineación de SPF y de DKIM se entrega igual que antes. Es el sitio correcto para empezar y el equivocado para quedarse.',
+  note_transport: 'STARTTLS es oportunista: a un remitente al que se le quita la oferta simplemente continúa en claro. MTA-STS y DANE son lo que convierte esa posibilidad en una garantía.',
+  note_sessions: 'Todas las sesiones son de solo lectura. La prueba de retransmisión se detiene en RCPT TO y envía RSET; nunca se emite una orden DATA, así que no puede enviarse ningún mensaje.',
+  note_rdns: 'Un registro PTR por sí solo no prueba nada — el dueño de un bloque de direcciones puede poner allí cualquier nombre. Lo que los receptores comprueban es si ese nombre resuelve de vuelta a la misma dirección.',
+
+  err_smtp_timeout: 'El servidor de correo no respondió a tiempo.',
+  err_smtp_network: 'No se pudo alcanzar el servidor de correo.',
+  err_smtp_refused: 'El servidor de correo rechazó la conexión.',
+  err_tls_failed: 'El saludo TLS con el servidor de correo falló.',
+
+  inc_mx_lookup_failed: 'no se pudieron leer los registros MX',
+  inc_spf_lookup_failed: 'no se pudo leer el registro SPF',
+  inc_dmarc_lookup_failed: 'no se pudo leer el registro DMARC',
+  inc_port_25_unreachable_from_this_network: 'el puerto 25 saliente está bloqueado donde se ejecuta este servicio, así que STARTTLS, la verificación DANE contra el certificado real y la prueba de retransmisión no pudieron hacerse',
+  inc_not_every_mx_was_probed: 'solo se conectó con los servidores de mayor prioridad',
+
+  cap_open_relay: 'el servidor retransmite correo de desconocidos',
+  cap_spf_authorises_everyone: 'SPF autoriza a todo internet',
+  cap_no_mail_servers: 'sin servidores de correo',
+  cap_mail_servers_unreachable: 'ningún servidor de correo respondió en el puerto 25',
+  cap_dane_mismatch: 'DANE no coincide con el certificado presentado',
+  cap_mtasts_policy_contradicts_dns: 'la política MTA-STS omite un servidor de correo real',
+  cap_spf_over_the_lookup_limit: 'SPF supera el límite de consultas',
+  cap_spf_permerror: 'SPF es un error permanente',
+  cap_dmarc_permerror: 'DMARC es un error permanente',
+  cap_mail_in_the_clear: 'el correo se acepta sin cifrar',
+  cap_no_spf: 'sin registro SPF',
+  cap_no_dmarc: 'sin registro DMARC',
+  cap_starttls_broken: 'STARTTLS se ofrece y no funciona',
+  cap_dmarc_not_enforcing: 'DMARC no aplica nada',
+  cap_no_reverse_dns: 'sin DNS inverso confirmado',
+  cap_spf_without_a_default: 'SPF no tiene valor por defecto',
+  cap_weak_dkim_key: 'una clave DKIM demasiado corta',
+  cap_dmarc_reports_go_nowhere: 'los informes DMARC no están autorizados',
+  cap_mail_server_does_not_resolve: 'un servidor de correo no resuelve',
+  cap_scan_incomplete: 'la comprobación quedó incompleta, así que no se otorgó nota',
+
+  flag_null_mx: 'El dominio declara que no gestiona correo',
+  fd_null_mx: 'Un único MX con prioridad 0 apuntando a la raíz es el RFC 7505 para «este dominio ni envía ni recibe correo». Deliberado, y mucho mejor que no tener MX en absoluto — sin él, los remitentes recurren al registro de dirección.',
+
+  flag_no_mx: 'Sin registros MX',
+  fd_no_mx: 'Nada indica adónde debe ir el correo de este dominio, y tampoco hay dirección de reserva, así que sencillamente no se puede entregar.',
+
+  flag_no_mx_falls_back_to_a: 'Sin registros MX, los remitentes recurren al registro A',
+  fd_no_mx_falls_back_to_a: 'El RFC 5321 §5.1 indica al remitente sin MX que pruebe el registro de dirección. El correo de este dominio se entregará a lo que esté escuchando en el puerto 25 del servidor web — algo que casi nunca es lo que se pretendía.',
+
+  flag_duplicate_mx_host: 'El mismo host aparece dos veces',
+  fd_duplicate_mx_host: 'Un host figura con más de una prioridad. Eso no es redundancia; es la misma máquina intentada dos veces.',
+
+  flag_mx_does_not_resolve: 'El nombre de un servidor de correo no resuelve',
+  fd_mx_does_not_resolve: 'El MX nombra un host sin registros de dirección. Todo remitente que llegue a esa prioridad espera la consulta, no obtiene nada y sigue adelante — retrasando correo que debería haber llegado de inmediato.',
+
+  flag_mx_points_at_cname: 'Un registro MX apunta a un alias',
+  fd_mx_points_at_cname: 'El RFC 2181 §10.3 exige que un MX nombre un host con registros de dirección, no un CNAME. Algunos remitentes lo toleran, otros lo rechazan, y quién hace qué cambia con el tiempo.',
+
+  flag_single_mx: 'Un solo servidor de correo',
+  fd_single_mx: 'Con un único MX, cualquier caída significa que los remitentes encolan y reintentan — durante horas o días, según su propia política — y parte de ese correo acabará rebotando.',
+
+  flag_no_ipv6_mx: 'Ningún servidor de correo es accesible por IPv6',
+  fd_no_ipv6_mx: 'Los remitentes en redes solo-IPv6 llegan a este dominio a través de un traductor, si es que llegan.',
+
+  flag_spf_missing: 'Sin registro SPF',
+  fd_spf_missing: 'Nada indica qué servidores pueden enviar correo como este dominio, así que no hay nada contra lo que comprobar. SPF es un registro TXT y lo más barato de toda esta página.',
+
+  flag_spf_multiple_records: 'Más de un registro SPF',
+  fd_spf_multiple_records: 'El RFC 7208 §4.5 convierte dos registros en un error permanente, y un permerror significa ningún resultado SPF — lo contrario de lo que se pretendía al añadir el segundo. Hay que fundirlos en uno.',
+
+  flag_spf_too_many_lookups: 'SPF necesita más de diez consultas DNS',
+  fd_spf_too_many_lookups: 'El límite del RFC 7208 §4.6.4 son diez términos con consulta en toda la evaluación, siguiendo cada include dentro de cada include. Pasado ese punto, un receptor debe devolver permerror y SPF deja de aplicarse — el registro podría no existir. Es fácil superarlo añadiendo un proveedor más, y completamente invisible desde el propio registro.',
+
+  flag_spf_lookups_near_limit: 'SPF está cerca del límite de diez consultas',
+  fd_spf_lookups_near_limit: 'Queda poco margen. El próximo servicio que se añada — o un cambio dentro del include de otro, que usted no controla — lo hará superarlo.',
+
+  flag_spf_too_many_void_lookups: 'Demasiadas consultas SPF no devuelven nada',
+  fd_spf_too_many_void_lookups: 'El RFC 7208 permite dos consultas que no resuelvan a nada; más allá es un error permanente. Suele ser un include olvidado de un servicio que ya no se usa.',
+
+  flag_spf_no_all: 'SPF no tiene valor por defecto',
+  fd_spf_no_all: 'Sin un mecanismo «all» ni un redirect, un remitente que no coincida con nada obtiene un resultado neutral — que es lo mismo que no tener opinión.',
+
+  flag_spf_plus_all: 'SPF autoriza a todo internet',
+  fd_spf_plus_all: '«+all» dice que cualquier host de cualquier lugar puede enviar como este dominio. Casi siempre es un malentendido sobre el cualificador, y es peor que no tener SPF, porque avala explícitamente al falsificador.',
+
+  flag_spf_neutral_all: 'SPF termina en ?all',
+  fd_spf_neutral_all: '«?all» se niega explícitamente a decir nada sobre los remitentes que no coinciden con nada. Los receptores lo tratan como ausencia de resultado.',
+
+  flag_spf_softfail_all: 'SPF termina en ~all en lugar de -all',
+  fd_spf_softfail_all: 'El fallo suave pide a los receptores que acepten pero marquen. Es lo correcto mientras todavía se averigua quién envía en su nombre, y lo que hay que endurecer una vez que se sabe.',
+
+  flag_spf_uses_ptr: 'SPF usa el mecanismo ptr',
+  fd_spf_uses_ptr: 'El RFC 7208 §5.5 lo declara obsoleto sin rodeos: es lento, poco fiable y traslada trabajo a quien gestiona la zona inversa. Algunos receptores lo ignoran por completo.',
+
+  flag_spf_unknown_mechanism: 'SPF contiene un término que nadie entiende',
+  fd_spf_unknown_mechanism: 'Un mecanismo no reconocido es un error permanente según el RFC 7208 §4.6.1, y descarta todo el registro. Normalmente es una errata.',
+
+  flag_spf_duplicate_redirect: 'Más de un modificador redirect',
+  fd_spf_duplicate_redirect: 'Un segundo redirect convierte el registro en un error permanente.',
+
+  flag_spf_redirect_after_all: 'Un redirect al que nunca se llega',
+  fd_spf_redirect_after_all: 'El registro tiene a la vez un mecanismo «all» y un redirect. «all» siempre coincide, así que la evaluación se detiene ahí y el redirect es texto muerto.',
+
+  flag_spf_record_long: 'El registro SPF es largo',
+  fd_spf_record_long: 'Los registros largos se parten en varias cadenas al viajar. Eso está bien en sí — los receptores las unen sin nada entre medias — pero es donde los analizadores que las unen con un espacio empiezan a corromper el registro.',
+
+  flag_spf_include_loop: 'Un include apunta a algo ya visitado',
+  fd_spf_include_loop: 'El despliegue entra en bucle. Un receptor se detiene en el límite de consultas y devuelve un error permanente.',
+
+  flag_spf_include_without_record: 'Un include apunta a un dominio sin registro SPF',
+  fd_spf_include_without_record: 'El RFC 7208 §5.2 lo convierte en un error permanente, no en una simple consulta desperdiciada. Suele ser un servicio que se retiró por un lado y no por el otro.',
+
+  flag_dkim_no_known_selector: 'No se encontró clave DKIM en ningún selector conocido',
+  fd_dkim_no_known_selector: 'Los selectores los elige quien firma y solo aparecen en la cabecera de un mensaje firmado, así que no pueden enumerarse desde fuera. Esto no prueba que falte DKIM — si conoce su selector, páselo con ?selector= y la comprobación pasa a ser concluyente.',
+
+  flag_dkim_key_revoked: 'Una clave DKIM ha sido revocada',
+  fd_dkim_key_revoked: 'El registro se publica con p= vacío, lo que revoca la clave. Esa es la forma correcta de retirar una — y un registro que lleva meses así suele ser una rotación que nadie terminó.',
+
+  flag_dkim_key_malformed: 'Una clave DKIM no se puede analizar',
+  fd_dkim_key_malformed: 'El valor de p= no es material de clave válido. Toda firma hecha con ella fallará la verificación.',
+
+  flag_dkim_in_test_mode: 'Un registro DKIM está en modo de prueba',
+  fd_dkim_in_test_mode: 't=y indica a los receptores que traten una firma fallida como si DKIM no estuviera en uso. Su sitio es un despliegue en curso y ningún otro.',
+
+  flag_dkim_key_too_short: 'Una clave DKIM tiene menos de 1024 bits',
+  fd_dkim_key_too_short: 'Por debajo de 1024 bits la firma no es realmente difícil de falsificar, y muchos receptores ignoran esas claves sin más.',
+
+  flag_dkim_key_1024_bit: 'Una clave DKIM es de 1024 bits',
+  fd_dkim_key_1024_bit: 'Todavía se acepta en todas partes, y está por debajo de las recomendaciones actuales. 2048 es el tamaño normal; la rotación es un selector nuevo y un registro DNS.',
+
+  flag_dmarc_missing: 'Sin registro DMARC',
+  fd_dmarc_missing: 'Sin DMARC, los resultados de SPF y DKIM son orientativos: nada los ata a la dirección que ve el lector, y nada indica a los receptores qué hacer cuando fallan.',
+
+  flag_dmarc_inherited: 'DMARC se hereda del dominio padre',
+  fd_dmarc_inherited: 'Este nombre no tiene registro propio, así que se aplica la política del dominio organizativo — su valor sp= si lo tiene, y si no su p=.',
+
+  flag_dmarc_multiple_records: 'Más de un registro DMARC',
+  fd_dmarc_multiple_records: 'RFC 7489 §6.6.3: con más de un registro la política se descarta por completo, como si no se hubiera publicado ninguna.',
+
+  flag_dmarc_no_policy: 'El registro DMARC no tiene etiqueta p=',
+  fd_dmarc_no_policy: 'p= es obligatoria. Sin ella el registro se ignora.',
+
+  flag_dmarc_invalid_policy: 'La política DMARC no es un valor reconocido',
+  fd_dmarc_invalid_policy: 'p= debe ser none, quarantine o reject. Con cualquier otra cosa los receptores descartan el registro.',
+
+  flag_dmarc_policy_none: 'DMARC no aplica nada',
+  fd_dmarc_policy_none: 'p=none pide a los receptores que informen y no cambien nada. Un mensaje que falla la alineación de SPF y de DKIM se entrega exactamente igual que sin DMARC. Es la forma correcta de empezar — y muchísimos dominios llevan años ahí creyéndose protegidos.',
+
+  flag_dmarc_policy_quarantine: 'DMARC pone en cuarentena en vez de rechazar',
+  fd_dmarc_policy_quarantine: 'El correo que falla va a la carpeta de no deseado en lugar de ser rechazado. Un paso razonable camino de reject, y un lugar donde el correo falsificado sigue llegando a las personas.',
+
+  flag_dmarc_subdomain_policy_none: 'Los subdominios quedan exentos de la política',
+  fd_dmarc_subdomain_policy_none: 'sp=none deja todos los subdominios — incluidos los que nunca han existido — disponibles para la suplantación, mientras el dominio en sí está protegido.',
+
+  flag_dmarc_partial_percentage: 'La política se aplica solo a parte del correo',
+  fd_dmarc_partial_percentage: 'pct= por debajo de 100 indica a los receptores que apliquen la política a esa proporción de mensajes fallidos y traten al resto con más indulgencia. Útil durante el despliegue, y una brecha mientras siga puesto.',
+
+  flag_dmarc_no_reporting: 'Sin dirección para informes agregados',
+  fd_dmarc_no_reporting: 'Sin rua= no llegan informes, lo que significa no tener forma de saber quién envía como su dominio ni qué se rompería al endurecer la política.',
+
+  flag_dmarc_external_reporting_unauthorised: 'La dirección externa de informes no le ha autorizado',
+  fd_dmarc_external_reporting_unauthorised: 'Los informes van dirigidos a otro dominio, y ese dominio no publica el registro que acepta recibirlos (RFC 7489 §7.1). Los receptores conformes no envían nada. El registro DMARC parece perfecto y los informes nunca llegan — algo que casi siempre se achaca a que «los informes tardan».',
+
+  flag_mtasts_missing: 'Sin política MTA-STS',
+  fd_mtasts_missing: 'STARTTLS es oportunista: un remitente que no ve la oferta envía en claro, y quitar esa oferta es fácil para cualquiera que esté entre los dos servidores. MTA-STS publica por HTTPS que este dominio siempre habla TLS, con lo que ese ataque pasa a exigir romper la PKI web.',
+
+  flag_mtasts_multiple_records: 'Más de un registro TXT de MTA-STS',
+  fd_mtasts_multiple_records: 'Los remitentes no pueden saber qué id es el actual, así que la política puede no refrescarse cuando cambie.',
+
+  flag_mtasts_no_id: 'El registro MTA-STS no tiene id',
+  fd_mtasts_no_id: 'El id es lo que le dice a un remitente que su copia de la política está obsoleta. Sin él, una política cambiada puede no recogerse hasta que expire max_age.',
+
+  flag_mtasts_policy_host_missing: 'El host de la política no resuelve',
+  fd_mtasts_policy_host_missing: 'El registro TXT anuncia una política y mta-sts.<dominio> no tiene dirección, así que ningún remitente puede descargarla.',
+
+  flag_mtasts_policy_host_private: 'El host de la política resuelve a espacio de direcciones privado',
+  fd_mtasts_policy_host_private: 'La política no se descargó: el host apunta a una dirección a la que este servicio no se conecta.',
+
+  flag_mtasts_policy_unreachable: 'No se pudo descargar la política MTA-STS',
+  fd_mtasts_policy_unreachable: 'El registro TXT promete una política que no está ahí, o cuyo certificado no valida. Como todo el mecanismo descansa en ese certificado HTTPS, un fallo aquí significa que los remitentes vuelven al TLS oportunista.',
+
+  flag_mtasts_policy_wrong_content_type: 'La política no se sirve como text/plain',
+  fd_mtasts_policy_wrong_content_type: 'El RFC 8461 exige text/plain. Los remitentes estrictos la rechazarán.',
+
+  flag_mtasts_policy_bad_version: 'La versión de la política no es STSv1',
+  fd_mtasts_policy_bad_version: 'Los remitentes no usarán una política cuya versión no reconocen.',
+
+  flag_mtasts_policy_bad_mode: 'El modo de la política no es un valor reconocido',
+  fd_mtasts_policy_bad_mode: 'mode debe ser enforce, testing o none.',
+
+  flag_mtasts_mode_testing: 'MTA-STS está en modo de prueba',
+  fd_mtasts_mode_testing: 'Los fallos se informan y el correo se entrega igualmente, así que la política todavía no protege nada. Una etapa de paso, no un destino.',
+
+  flag_mtasts_mode_none: 'MTA-STS está desactivado por su propia política',
+  fd_mtasts_mode_none: 'mode=none retira la política. Existe para que un dominio pueda abandonar MTA-STS con orden; dejado ahí significa simplemente que el registro no hace nada.',
+
+  flag_mtasts_no_max_age: 'La política no tiene max_age',
+  fd_mtasts_no_max_age: 'max_age es obligatorio, y es lo que hace que la política resista ser suprimida: un remitente que la haya guardado seguirá aplicándola.',
+
+  flag_mtasts_max_age_short: 'La política se guarda menos de un día',
+  fd_mtasts_max_age_short: 'Un max_age corto estrecha la ventana en la que una política guardada protege a un remitente. Unas semanas es lo habitual una vez que la política es estable.',
+
+  flag_mtasts_mx_not_in_policy: 'Falta un servidor de correo real en la política',
+  fd_mtasts_mx_not_in_policy: 'El conjunto MX contiene un host con el que no coincide ningún patrón mx: de la política. Todo remitente que aplique esta política se negará a entregar en ese host — así que el correo falla justo con los remitentes que están siendo cuidadosos.',
+
+  flag_mtasts_policy_lists_unknown_mx: 'La política lista patrones que no coinciden con ningún MX actual',
+  fd_mtasts_policy_lists_unknown_mx: 'Inofensivo, y normalmente un resto de una migración. Merece la pena limpiarlo para que la política siga describiendo la realidad.',
+
+  flag_mtasts_policy_no_mx: 'La política no lista ningún servidor de correo',
+  fd_mtasts_policy_no_mx: 'Una política sin entradas mx: no coincide con nada, así que los remitentes que la apliquen no tienen dónde entregar.',
+
+  flag_tlsrpt_missing: 'Sin registro TLS-RPT',
+  fd_tlsrpt_missing: 'Un registro TXT, y la única forma de enterarse de que los remitentes no consiguen negociar TLS con sus servidores. Sin él, un certificado caducado o un STARTTLS roto son invisibles desde su lado.',
+
+  flag_tlsrpt_no_rua: 'El registro TLS-RPT no tiene destino',
+  fd_tlsrpt_no_rua: 'Sin rua= los informes no tienen adónde ir, así que el registro no hace nada.',
+
+  flag_dane_missing: 'Sin registros DANE',
+  fd_dane_missing: 'Los registros TLSA fijan el certificado que debe presentar un servidor de correo, apoyándose en DNSSEC y no en las autoridades públicas. Es el más fuerte de los dos mecanismos de transporte — y necesita la zona firmada, que suele ser la razón de que no se use.',
+
+  flag_dane_partial: 'Solo algunos servidores de correo tienen registros DANE',
+  fd_dane_partial: 'Los remitentes eligen servidor por prioridad, así que un conjunto donde solo algunos hosts están fijados está protegido solo parte del tiempo.',
+
+  flag_dane_without_dnssec: 'Un registro TLSA en una zona sin firmar',
+  fd_dane_without_dnssec: 'DANE descansa por completo en DNSSEC. Sin firmas, quien pueda sustituir el registro MX puede sustituir también el TLSA, así que la fijación no protege nada aunque lo aparente.',
+
+  flag_dane_mismatch: 'El registro TLSA no coincide con el certificado presentado',
+  fd_dane_mismatch: 'El servidor presenta un certificado que su propio registro DANE no autoriza. Todo remitente que valide DANE se negará a entregar — esto detiene el correo.',
+
+  flag_dane_pkix_usage: 'Un registro TLSA usa un modo PKIX',
+  fd_dane_pkix_usage: 'Los usos 0 y 1 exigen además que el certificado valide a través de las autoridades públicas. El RFC 7672 §3.1 prohíbe ambos para SMTP, porque no hay forma acordada de hacer esa comprobación para el correo.',
+
+  flag_dane_full_certificate: 'Un registro TLSA fija el certificado entero',
+  fd_dane_full_certificate: 'El tipo de coincidencia 0 guarda el certificado completo en lugar de un resumen. Funciona, hace el registro grande y obliga a reemplazarlo en cada renovación.',
+
+  flag_port_25_blocked_from_here: 'El puerto 25 saliente está bloqueado donde se ejecuta este servicio',
+  fd_port_25_blocked_from_here: 'Esto es sobre nuestra red, no sobre la suya. La mayoría de los proveedores bloquean por defecto las conexiones salientes al puerto 25. Por eso no pudieron hacerse STARTTLS, la verificación DANE contra un certificado real ni la prueba de retransmisión, y la nota se retiene en vez de calcularse con lo que resultó alcanzable.',
+
+  flag_mx_not_reachable_on_25: 'Ningún servidor de correo respondió en el puerto 25',
+  fd_mx_not_reachable_on_25: 'Los registros MX nombran hosts que no aceptan conexiones en el puerto por el que se entrega el correo. A este dominio no se le puede entregar nada.',
+
+  flag_no_starttls: 'Un servidor de correo no ofrece STARTTLS',
+  fd_no_starttls: 'Cada mensaje entregado a este servidor cruza internet sin cifrar, legible por cualquier cosa que esté en el camino. Ofrecer STARTTLS cuesta un certificado y una línea de configuración.',
+
+  flag_starttls_fails: 'STARTTLS se ofrece y no funciona',
+  fd_starttls_fails: 'El servidor anuncia STARTTLS y el saludo falla. Los remitentes cuidadosos pueden negarse a caer a texto plano y aplazar el correo — así que esto es peor que no ofrecerlo.',
+
+  flag_starttls_legacy_protocol: 'El servidor de correo negocia una versión obsoleta de TLS',
+  fd_starttls_legacy_protocol: 'TLS 1.0 y 1.1 están obsoletos desde el RFC 8996. Los remitentes van retirando su soporte, y cuando lo hagan el correo dejará de llegar.',
+
+  flag_mx_certificate_not_trusted: 'El certificado del servidor de correo no valida',
+  fd_mx_certificate_not_trusted: 'El TLS oportunista corriente no verifica certificados, así que hoy esto no impide la entrega. La impide por completo en cuanto entra en juego MTA-STS en modo enforce o DANE.',
+
+  flag_banner_reveals_version: 'El saludo nombra el programa y su versión',
+  fd_banner_reveals_version: 'Un pequeño regalo para quien busque hosts con un fallo conocido en esa versión exacta. En el saludo puede escribirse cualquier cosa.',
+
+  flag_open_relay: 'El servidor retransmite correo de desconocidos',
+  fd_open_relay: 'Aceptó un mensaje de un remitente ajeno para un destinatario ajeno. Cualquiera puede usarlo para enviar spam en su nombre, y estará en listas negras en cuestión de horas si no lo está ya. Esto se arregla hoy. (La prueba se detuvo en RCPT TO y envió RSET: no se envió ningún mensaje.)',
+
+  flag_no_size_extension: 'El servidor no anuncia SIZE',
+  fd_no_size_extension: 'Sin SIZE un remitente no puede saber si se aceptará un mensaje grande hasta haberlo transferido entero.',
+
+  flag_submission_without_starttls: 'El puerto de envío no ofrece STARTTLS',
+  fd_submission_without_starttls: 'El puerto 587 es donde los clientes de correo se autentican. Sin STARTTLS esas credenciales cruzan la red en claro.',
+
+  flag_rdns_missing: 'Una dirección de servidor de correo no tiene registro PTR',
+  fd_rdns_missing: 'La falta de DNS inverso es una de las razones más habituales de que el correo de un servidor nuevo se aplace o acabe en no deseado — y de las que menos explica el lado receptor.',
+
+  flag_rdns_not_confirmed: 'El DNS inverso no resuelve de vuelta',
+  fd_rdns_not_confirmed: 'El registro PTR da un nombre, y ese nombre no resuelve a esta dirección. Los receptores comprueban el viaje de ida y vuelta precisamente porque exige que dos partes distintas hayan hecho lo suyo.',
+
+  flag_rdns_none_confirmed: 'Ningún servidor de correo tiene DNS inverso confirmado hacia delante',
+  fd_rdns_none_confirmed: 'Ni una sola dirección pasa la comprobación de ida y vuelta. Espere retrasos de entrega y clasificación como no deseado por parte de los receptores que lo tienen en cuenta.',
+};
+
 window.I18N = window.mergeI18N(OWN);
