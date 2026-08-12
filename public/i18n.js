@@ -811,7 +811,7 @@ OWN.es = {
   title: 'Comprobación de correo — SPF, DKIM, DMARC, MTA-STS y DANE de cualquier dominio',
   title_short: 'Comprobación de correo',
   h1: 'Comprobación de correo',
-  subtitle: 'SPF desplegado a través de cada include y contado contra el límite de diez, alineación y notificación DMARC, y la seguridad del transporte comprobada sobre la conexión real',
+  subtitle: 'SPF desplegado a través de cada include y descontado del límite de diez, alineación y notificación DMARC, y la seguridad del transporte comprobada sobre la conexión real',
   ph_host: 'example.com',
   hero_label: 'Dominio comprobado',
   empty_hint: 'Introduzca un nombre de dominio. La comprobación despliega el registro SPF a través de cada include, prueba los selectores DKIM que usan las grandes plataformas, lee la política DMARC, descarga la política MTA-STS por HTTPS y abre sesiones SMTP de solo lectura con los servidores de correo. Nunca se envía ningún mensaje.',
@@ -915,7 +915,7 @@ OWN.es = {
 
   note_spf: 'El RFC 7208 permite diez términos con consulta DNS en toda la evaluación, siguiendo cada include dentro de cada include. Pasados los diez, un receptor debe devolver permerror — y un permerror significa que SPF no se aplica en absoluto, exactamente como si no hubiera registro.',
   note_dmarc: 'Con p=none no se aplica nada: un mensaje que falla la alineación de SPF y de DKIM se entrega igual que antes. Es el sitio correcto para empezar y el equivocado para quedarse.',
-  note_transport: 'STARTTLS es oportunista: a un remitente al que se le quita la oferta simplemente continúa en claro. MTA-STS y DANE son lo que convierte esa posibilidad en una garantía.',
+  note_transport: 'STARTTLS es oportunista: un remitente al que se le quita la oferta simplemente continúa en claro. MTA-STS y DANE son lo que convierte esa posibilidad en una garantía.',
   note_sessions: 'Todas las sesiones son de solo lectura. La prueba de retransmisión se detiene en RCPT TO y envía RSET; nunca se emite una orden DATA, así que no puede enviarse ningún mensaje.',
   note_rdns: 'Un registro PTR por sí solo no prueba nada — el dueño de un bloque de direcciones puede poner allí cualquier nombre. Lo que los receptores comprueban es si ese nombre resuelve de vuelta a la misma dirección.',
 
@@ -952,7 +952,7 @@ OWN.es = {
   cap_scan_incomplete: 'la comprobación quedó incompleta, así que no se otorgó nota',
 
   flag_null_mx: 'El dominio declara que no gestiona correo',
-  fd_null_mx: 'Un único MX con prioridad 0 apuntando a la raíz es el RFC 7505 para «este dominio ni envía ni recibe correo». Deliberado, y mucho mejor que no tener MX en absoluto — sin él, los remitentes recurren al registro de dirección.',
+  fd_null_mx: 'Un único MX con prioridad 0 apuntando a la raíz es la forma que describe el RFC 7505 de decir que este dominio ni envía ni recibe correo. Deliberado, y mucho mejor que no tener MX en absoluto — sin él, los remitentes recurren al registro A.',
 
   flag_no_mx: 'Sin registros MX',
   fd_no_mx: 'Nada indica adónde debe ir el correo de este dominio, y tampoco hay dirección de reserva, así que sencillamente no se puede entregar.',
@@ -1030,7 +1030,7 @@ OWN.es = {
   fd_dkim_key_revoked: 'El registro se publica con p= vacío, lo que revoca la clave. Esa es la forma correcta de retirar una — y un registro que lleva meses así suele ser una rotación que nadie terminó.',
 
   flag_dkim_key_malformed: 'Una clave DKIM no se puede analizar',
-  fd_dkim_key_malformed: 'El valor de p= no es material de clave válido. Toda firma hecha con ella fallará la verificación.',
+  fd_dkim_key_malformed: 'El valor de p= no se analiza como una clave. Toda firma hecha con ella fallará la verificación.',
 
   flag_dkim_in_test_mode: 'Un registro DKIM está en modo de prueba',
   fd_dkim_in_test_mode: 't=y indica a los receptores que traten una firma fallida como si DKIM no estuviera en uso. Su sitio es un despliegue en curso y ningún otro.',
@@ -1168,7 +1168,7 @@ OWN.es = {
   fd_banner_reveals_version: 'Un pequeño regalo para quien busque hosts con un fallo conocido en esa versión exacta. En el saludo puede escribirse cualquier cosa.',
 
   flag_open_relay: 'El servidor retransmite correo de desconocidos',
-  fd_open_relay: 'Aceptó un mensaje de un remitente ajeno para un destinatario ajeno. Cualquiera puede usarlo para enviar spam en su nombre, y estará en listas negras en cuestión de horas si no lo está ya. Esto se arregla hoy. (La prueba se detuvo en RCPT TO y envió RSET: no se envió ningún mensaje.)',
+  fd_open_relay: 'Aceptó un mensaje de un remitente ajeno para un destinatario ajeno. Cualquiera puede usarlo para enviar spam en su nombre, y estará en listas negras en cuestión de horas si no lo está ya. Esto se arregla hoy mismo. (La prueba se detuvo en RCPT TO y envió RSET: no se envió ningún mensaje.)',
 
   flag_no_size_extension: 'El servidor no anuncia SIZE',
   fd_no_size_extension: 'Sin SIZE un remitente no puede saber si se aceptará un mensaje grande hasta haberlo transferido entero.',
@@ -1190,7 +1190,7 @@ OWN.pt = {
   title: 'Verificação de e-mail — SPF, DKIM, DMARC, MTA-STS e DANE de qualquer domínio',
   title_short: 'Verificação de e-mail',
   h1: 'Verificação de e-mail',
-  subtitle: 'SPF expandido através de cada include e contado contra o limite de dez, alinhamento e relatórios DMARC, e a segurança do transporte verificada na conexão real',
+  subtitle: 'SPF expandido através de cada include e descontado do limite de dez, alinhamento e relatórios DMARC, e a segurança do transporte verificada na conexão real',
   ph_host: 'example.com',
   hero_label: 'Domínio verificado',
   empty_hint: 'Digite um nome de domínio. A verificação expande o registro SPF através de cada include, tenta os seletores DKIM que as grandes plataformas usam, lê a política DMARC, busca a política MTA-STS por HTTPS e abre sessões SMTP somente de leitura com os servidores de e-mail. Nenhuma mensagem é enviada.',
@@ -1331,7 +1331,7 @@ OWN.pt = {
   cap_scan_incomplete: 'a verificação ficou incompleta, então nenhuma nota foi dada',
 
   flag_null_mx: 'O domínio declara que não lida com e-mail',
-  fd_null_mx: 'Um único MX com prioridade 0 apontando para a raiz é o RFC 7505 para «este domínio não envia nem recebe e-mail». Deliberado, e bem melhor do que não ter MX nenhum — sem ele, os remetentes recorrem ao registro de endereço.',
+  fd_null_mx: 'Um único MX com prioridade 0 apontando para a raiz é a forma que o RFC 7505 descreve de dizer que este domínio não envia nem recebe e-mail. Deliberado, e bem melhor do que não ter MX nenhum — sem ele, os remetentes recorrem ao registro A.',
 
   flag_no_mx: 'Sem registros MX',
   fd_no_mx: 'Nada diz para onde o e-mail deste domínio deve ir, e também não há endereço de reserva, então simplesmente não há como entregar.',
@@ -1370,13 +1370,13 @@ OWN.pt = {
   fd_spf_too_many_void_lookups: 'O RFC 7208 permite duas consultas que não resolvem para nada; além disso é erro permanente. Normalmente é um include esquecido de um serviço que não se usa mais.',
 
   flag_spf_no_all: 'O SPF não tem padrão',
-  fd_spf_no_all: 'Sem um mecanismo «all» nem um redirect, um remetente que não casa com nada recebe resultado neutro — o mesmo que não ter opinião alguma.',
+  fd_spf_no_all: 'Sem um mecanismo “all” nem um redirect, um remetente que não casa com nada recebe resultado neutro — o mesmo que não ter opinião alguma.',
 
   flag_spf_plus_all: 'O SPF autoriza a internet inteira',
-  fd_spf_plus_all: '«+all» diz que qualquer host em qualquer lugar pode enviar como este domínio. Quase sempre é um mal-entendido sobre o qualificador, e é pior do que não ter SPF, porque endossa explicitamente o falsificador.',
+  fd_spf_plus_all: '“+all” diz que qualquer host em qualquer lugar pode enviar como este domínio. Quase sempre é um mal-entendido sobre o qualificador, e é pior do que não ter SPF, porque endossa explicitamente o falsificador.',
 
   flag_spf_neutral_all: 'O SPF termina em ?all',
-  fd_spf_neutral_all: '«?all» recusa-se explicitamente a dizer qualquer coisa sobre remetentes que não casam com nada. Os receptores tratam isso como ausência de resultado.',
+  fd_spf_neutral_all: '“?all” recusa-se explicitamente a dizer qualquer coisa sobre remetentes que não casam com nada. Os receptores tratam isso como ausência de resultado.',
 
   flag_spf_softfail_all: 'O SPF termina em ~all em vez de -all',
   fd_spf_softfail_all: 'A falha branda pede aos receptores que aceitem mas marquem. É o ajuste certo enquanto você ainda descobre quem envia em seu nome, e o que apertar depois que já sabe.',
@@ -1391,10 +1391,10 @@ OWN.pt = {
   fd_spf_duplicate_redirect: 'Um segundo redirect torna o registro um erro permanente.',
 
   flag_spf_redirect_after_all: 'Um redirect que nunca será alcançado',
-  fd_spf_redirect_after_all: 'O registro tem tanto um mecanismo «all» quanto um redirect. «all» sempre casa, então a avaliação para ali e o redirect é texto morto.',
+  fd_spf_redirect_after_all: 'O registro tem tanto um mecanismo “all” quanto um redirect. “all” sempre casa, então a avaliação para ali e o redirect é texto morto.',
 
   flag_spf_record_long: 'O registro SPF é longo',
-  fd_spf_record_long: 'Registros longos são partidos em várias cadeias no transporte. Isso em si tudo bem — os receptores as juntam sem nada no meio — mas é onde analisadores que as unem com espaço começam a corromper o registro.',
+  fd_spf_record_long: 'Registros longos são partidos em várias cadeias na transmissão. Isso em si é normal — os receptores as juntam sem nada no meio — mas é onde analisadores que as unem com espaço começam a corromper o registro.',
 
   flag_spf_include_loop: 'Um include aponta de volta para algo já visitado',
   fd_spf_include_loop: 'A expansão entra em laço. Um receptor para no limite de consultas e devolve erro permanente.',
@@ -1409,7 +1409,7 @@ OWN.pt = {
   fd_dkim_key_revoked: 'O registro é publicado com p= vazio, o que revoga a chave. Essa é a forma correta de aposentar uma — e um registro deixado assim por meses costuma ser uma troca que ninguém terminou.',
 
   flag_dkim_key_malformed: 'Uma chave DKIM não pode ser lida',
-  fd_dkim_key_malformed: 'O valor de p= não é material de chave válido. Toda assinatura feita com ela falhará na verificação.',
+  fd_dkim_key_malformed: 'O valor de p= não se analisa como uma chave. Toda assinatura feita com ela falhará na verificação.',
 
   flag_dkim_in_test_mode: 'Um registro DKIM está em modo de teste',
   fd_dkim_in_test_mode: 't=y diz aos receptores para tratarem uma assinatura falha como se DKIM não estivesse em uso. O lugar disso é uma implantação em curso e nenhum outro.',
@@ -1451,10 +1451,10 @@ OWN.pt = {
   fd_dmarc_no_reporting: 'Sem rua= não chegam relatórios, o que significa não ter como descobrir quem envia como o seu domínio nem o que quebraria ao apertar a política.',
 
   flag_dmarc_external_reporting_unauthorised: 'O endereço externo de relatórios não autorizou você',
-  fd_dmarc_external_reporting_unauthorised: 'Os relatórios apontam para outro domínio, e esse domínio não publica o registro que concorda em recebê-los (RFC 7489 §7.1). Receptores em conformidade não enviam nada. O registro DMARC parece perfeito e os relatórios nunca chegam — o que quase sempre é atribuído a «relatórios demoram».',
+  fd_dmarc_external_reporting_unauthorised: 'Os relatórios apontam para outro domínio, e esse domínio não publica o registro que concorda em recebê-los (RFC 7489 §7.1). Receptores em conformidade não enviam nada. O registro DMARC parece perfeito e os relatórios nunca chegam — o que quase sempre é atribuído a “relatórios demoram”.',
 
   flag_mtasts_missing: 'Sem política MTA-STS',
-  fd_mtasts_missing: 'O STARTTLS é oportunista: um remetente que não vê a oferta envia em texto aberto, e retirar essa oferta é fácil para quem estiver entre os dois servidores. O MTA-STS publica por HTTPS que este domínio sempre fala TLS, o que faz esse ataque exigir quebrar a PKI da web.',
+  fd_mtasts_missing: 'O STARTTLS é oportunista: um remetente que não vê a oferta envia em texto aberto, e retirar essa oferta é fácil para quem estiver entre os dois servidores. O MTA-STS publica por HTTPS que este domínio sempre fala TLS, o que obriga o atacante a quebrar a PKI da web.',
 
   flag_mtasts_multiple_records: 'Mais de um registro TXT de MTA-STS',
   fd_mtasts_multiple_records: 'Os remetentes não conseguem dizer qual id é o atual, então a política pode não ser atualizada quando mudar.',
@@ -1547,7 +1547,7 @@ OWN.pt = {
   fd_banner_reveals_version: 'Um pequeno presente para quem procura hosts com uma falha conhecida naquela versão exata. A saudação pode dizer qualquer coisa.',
 
   flag_open_relay: 'O servidor retransmite e-mail de estranhos',
-  fd_open_relay: 'Ele aceitou uma mensagem de um remetente alheio para um destinatário alheio. Qualquer um pode usá-lo para mandar spam em seu nome, e ele estará em listas de bloqueio em poucas horas, se já não estiver. Isso se conserta hoje. (A sondagem parou em RCPT TO e enviou RSET — nenhuma mensagem foi enviada.)',
+  fd_open_relay: 'Ele aceitou uma mensagem de um remetente alheio para um destinatário alheio. Qualquer um pode usá-lo para mandar spam em seu nome, e ele estará em listas de bloqueio em poucas horas, se já não estiver. Isso se conserta hoje mesmo. (A sondagem parou em RCPT TO e enviou RSET — nenhuma mensagem foi enviada.)',
 
   flag_no_size_extension: 'O servidor não anuncia SIZE',
   fd_no_size_extension: 'Sem SIZE um remetente não tem como saber se uma mensagem grande será aceita antes de tê-la transferido inteira.',
@@ -1569,7 +1569,7 @@ OWN.fr = {
   title: 'Contrôle e-mail — SPF, DKIM, DMARC, MTA-STS et DANE pour n’importe quel domaine',
   title_short: 'Contrôle e-mail',
   h1: 'Contrôle e-mail',
-  subtitle: 'SPF déployé à travers chaque include et compté face à la limite de dix, alignement et rapports DMARC, et la sécurité du transport vérifiée sur la connexion réelle',
+  subtitle: 'SPF déployé à travers chaque include et décompté de la limite de dix, alignement et rapports DMARC, et la sécurité du transport vérifiée sur la connexion réelle',
   ph_host: 'example.com',
   hero_label: 'Domaine contrôlé',
   empty_hint: 'Saisissez un nom de domaine. Le contrôle déploie l’enregistrement SPF à travers chaque include, essaie les sélecteurs DKIM qu’utilisent les grandes plateformes, lit la politique DMARC, récupère la politique MTA-STS en HTTPS et ouvre des sessions SMTP en lecture seule avec les serveurs de messagerie. Aucun message n’est jamais envoyé.',
@@ -1710,7 +1710,7 @@ OWN.fr = {
   cap_scan_incomplete: 'le contrôle est resté incomplet, aucune note n’a donc été attribuée',
 
   flag_null_mx: 'Le domaine déclare ne pas gérer de courrier',
-  fd_null_mx: 'Un unique MX de priorité 0 pointant vers la racine, c’est le RFC 7505 pour « ce domaine n’envoie ni ne reçoit de courrier ». Délibéré, et bien meilleur que l’absence totale de MX — sans lui, les expéditeurs se rabattent sur l’enregistrement d’adresse.',
+  fd_null_mx: 'Un unique MX de priorité 0 pointant vers la racine, c’est la façon décrite par le RFC 7505 de dire que ce domaine n’envoie ni ne reçoit de courrier. Délibéré, et bien meilleur que l’absence totale de MX — sans lui, les expéditeurs se rabattent sur l’enregistrement A.',
 
   flag_no_mx: 'Aucun enregistrement MX',
   fd_no_mx: 'Rien n’indique où doit aller le courrier de ce domaine, et il n’y a pas non plus d’adresse de repli : il est donc tout simplement impossible de le délivrer.',
@@ -1773,7 +1773,7 @@ OWN.fr = {
   fd_spf_redirect_after_all: 'L’enregistrement comporte à la fois un mécanisme « all » et un redirect. « all » correspond toujours, l’évaluation s’arrête donc là et le redirect est du texte mort.',
 
   flag_spf_record_long: 'L’enregistrement SPF est long',
-  fd_spf_record_long: 'Les enregistrements longs sont découpés en plusieurs chaînes sur le fil. Cela ne pose pas de problème en soi — les destinataires les recollent sans rien entre elles — mais c’est là que les analyseurs qui les joignent par une espace commencent à corrompre l’enregistrement.',
+  fd_spf_record_long: 'Les enregistrements longs sont découpés en plusieurs chaînes lors de la transmission. Cela ne pose pas de problème en soi — les destinataires les recollent sans rien entre elles — mais c’est là que les analyseurs qui les joignent par une espace commencent à corrompre l’enregistrement.',
 
   flag_spf_include_loop: 'Un include renvoie vers quelque chose de déjà visité',
   fd_spf_include_loop: 'Le déploiement boucle. Un destinataire s’arrête à la limite de requêtes et renvoie une erreur permanente.',
@@ -1788,7 +1788,7 @@ OWN.fr = {
   fd_dkim_key_revoked: 'L’enregistrement est publié avec un p= vide, ce qui révoque la clé. C’est la bonne manière d’en retirer une — et un enregistrement laissé ainsi pendant des mois est d’ordinaire un renouvellement que personne n’a terminé.',
 
   flag_dkim_key_malformed: 'Une clé DKIM ne peut pas être analysée',
-  fd_dkim_key_malformed: 'La valeur de p= n’est pas un matériel de clé valide. Toute signature faite avec elle échouera à la vérification.',
+  fd_dkim_key_malformed: 'La valeur de p= ne s’analyse pas comme une clé. Toute signature faite avec elle échouera à la vérification.',
 
   flag_dkim_in_test_mode: 'Un enregistrement DKIM est en mode test',
   fd_dkim_in_test_mode: 't=y demande aux destinataires de traiter une signature en échec comme si DKIM n’était pas utilisé. Sa place est dans un déploiement en cours et nulle part ailleurs.',
@@ -1926,7 +1926,7 @@ OWN.fr = {
   fd_banner_reveals_version: 'Un petit cadeau pour qui cherche des hôtes affectés par un défaut connu de cette version exacte. La bannière peut dire n’importe quoi.',
 
   flag_open_relay: 'Le serveur relaie le courrier d’inconnus',
-  fd_open_relay: 'Il a accepté un message d’un expéditeur étranger vers un destinataire étranger. N’importe qui peut s’en servir pour envoyer du spam en votre nom, et il sera sur des listes de blocage en quelques heures s’il n’y est pas déjà. Cela se répare aujourd’hui. (La sonde s’est arrêtée à RCPT TO et a envoyé RSET — aucun message n’a été envoyé.)',
+  fd_open_relay: 'Il a accepté un message d’un expéditeur étranger vers un destinataire étranger. N’importe qui peut s’en servir pour envoyer du spam en votre nom, et il sera sur des listes de blocage en quelques heures s’il n’y est pas déjà. Cela se répare aujourd’hui même. (La sonde s’est arrêtée à RCPT TO et a envoyé RSET — aucun message n’a été envoyé.)',
 
   flag_no_size_extension: 'Le serveur n’annonce pas SIZE',
   fd_no_size_extension: 'Sans SIZE, un expéditeur ne peut pas savoir si un gros message sera accepté avant de l’avoir transféré en entier.',
@@ -1948,7 +1948,7 @@ OWN.de = {
   title: 'Mail-Prüfung — SPF, DKIM, DMARC, MTA-STS und DANE für jede Domain',
   title_short: 'Mail-Prüfung',
   h1: 'Mail-Prüfung',
-  subtitle: 'SPF durch jedes include hindurch aufgelöst und gegen das Limit von zehn gezählt, DMARC-Ausrichtung und Berichte, und die Transportsicherheit an der echten Verbindung geprüft',
+  subtitle: 'SPF durch jedes include hindurch aufgelöst und auf das Limit von zehn angerechnet, DMARC-Ausrichtung und Berichte, und die Transportsicherheit an der echten Verbindung geprüft',
   ph_host: 'example.com',
   hero_label: 'Geprüfte Domain',
   empty_hint: 'Geben Sie einen Domainnamen ein. Die Prüfung löst den SPF-Eintrag durch jedes include hindurch auf, probiert die DKIM-Selektoren der großen Plattformen, liest die DMARC-Richtlinie, holt die MTA-STS-Richtlinie über HTTPS und öffnet ausschließlich lesende SMTP-Sitzungen zu den Mailservern. Es wird niemals eine Nachricht versendet.',
@@ -2052,7 +2052,7 @@ OWN.de = {
 
   note_spf: 'RFC 7208 erlaubt zehn Terme mit DNS-Abfrage über die gesamte Auswertung hinweg, wobei jedes include innerhalb jedes include mitgezählt wird. Jenseits von zehn muss ein Empfänger permerror zurückgeben — und permerror heißt, dass SPF überhaupt nicht gilt, genau so, als gäbe es keinen Eintrag.',
   note_dmarc: 'Bei p=none wird nichts durchgesetzt: Eine Nachricht, die sowohl an der SPF- als auch an der DKIM-Ausrichtung scheitert, wird zugestellt wie zuvor. Das ist der richtige Ort zum Anfangen und der falsche zum Bleiben.',
-  note_transport: 'STARTTLS ist opportunistisch: Ein Absender, dem das Angebot entzogen wird, macht schlicht im Klartext weiter. MTA-STS und DANE sind das, was aus dieser Möglichkeit eine Zusage macht.',
+  note_transport: 'STARTTLS ist opportunistisch: Ein Absender, dem das Angebot unterwegs gestrichen wird, macht schlicht im Klartext weiter. MTA-STS und DANE sind das, was aus dieser Möglichkeit eine Zusage macht.',
   note_sessions: 'Alle Sitzungen sind rein lesend. Die Relay-Probe hält bei RCPT TO an und schickt RSET; ein DATA-Befehl wird nie abgesetzt, es kann also keine Nachricht verschickt werden.',
   note_rdns: 'Ein PTR-Eintrag allein beweist nichts — wer einen Adressblock besitzt, kann dort jeden beliebigen Namen eintragen. Empfänger prüfen, ob dieser Name auf dieselbe Adresse zurück auflöst.',
 
@@ -2089,7 +2089,7 @@ OWN.de = {
   cap_scan_incomplete: 'die Prüfung blieb unvollständig, daher wurde keine Note vergeben',
 
   flag_null_mx: 'Die Domain erklärt, dass sie keine Post bearbeitet',
-  fd_null_mx: 'Ein einzelner MX mit Priorität 0, der auf die Wurzel zeigt, ist RFC 7505 für „diese Domain sendet und empfängt keine Post". Beabsichtigt, und weit besser als gar kein MX — ohne ihn weichen Absender auf den Adresseintrag aus.',
+  fd_null_mx: 'Ein einzelner MX mit Priorität 0, der auf die Wurzel zeigt, ist die in RFC 7505 beschriebene Art zu sagen, dass diese Domain keine Post sendet und empfängt. Beabsichtigt, und weit besser als gar kein MX — ohne ihn weichen Absender auf den A-Eintrag aus.',
 
   flag_no_mx: 'Keine MX-Einträge',
   fd_no_mx: 'Nichts sagt, wohin Post für diese Domain gehen soll, und es gibt auch keine Ausweichadresse: Zustellen lässt sich schlicht nichts.',
@@ -2128,13 +2128,13 @@ OWN.de = {
   fd_spf_too_many_void_lookups: 'RFC 7208 erlaubt zwei Abfragen, die zu nichts auflösen; darüber hinaus ist es ein dauerhafter Fehler. Meist ist es ein vergessenes include für einen Dienst, der nicht mehr benutzt wird.',
 
   flag_spf_no_all: 'SPF hat keine Vorgabe',
-  fd_spf_no_all: 'Ohne „all"-Mechanismus und ohne redirect erhält ein Absender, auf den nichts passt, ein neutrales Ergebnis — was dasselbe ist wie gar keine Aussage.',
+  fd_spf_no_all: 'Ohne „all“-Mechanismus und ohne redirect erhält ein Absender, auf den nichts passt, ein neutrales Ergebnis — was dasselbe ist wie gar keine Aussage.',
 
   flag_spf_plus_all: 'SPF autorisiert das ganze Internet',
-  fd_spf_plus_all: '„+all" sagt, dass jeder Host irgendwo als diese Domain senden darf. Fast immer ist es ein Missverständnis des Qualifikators, und es ist schlimmer als gar kein SPF, weil es ausdrücklich für den Fälscher bürgt.',
+  fd_spf_plus_all: '„+all“ sagt, dass jeder Host irgendwo als diese Domain senden darf. Fast immer ist es ein Missverständnis des Qualifikators, und es ist schlimmer als gar kein SPF, weil es ausdrücklich für den Fälscher bürgt.',
 
   flag_spf_neutral_all: 'SPF endet auf ?all',
-  fd_spf_neutral_all: '„?all" weigert sich ausdrücklich, über Absender etwas zu sagen, auf die nichts passt. Empfänger behandeln das als fehlendes Ergebnis.',
+  fd_spf_neutral_all: '„?all“ weigert sich ausdrücklich, über Absender etwas zu sagen, auf die nichts passt. Empfänger behandeln das als fehlendes Ergebnis.',
 
   flag_spf_softfail_all: 'SPF endet auf ~all statt auf -all',
   fd_spf_softfail_all: 'Der weiche Fehlschlag bittet Empfänger, anzunehmen und zu kennzeichnen. Das ist richtig, solange Sie noch herausfinden, wer in Ihrem Namen sendet, und das, was man anzieht, sobald man es weiß.',
@@ -2149,10 +2149,10 @@ OWN.de = {
   fd_spf_duplicate_redirect: 'Ein zweites redirect macht den Eintrag zu einem dauerhaften Fehler.',
 
   flag_spf_redirect_after_all: 'Ein redirect, das nie erreicht wird',
-  fd_spf_redirect_after_all: 'Der Eintrag hat sowohl einen „all"-Mechanismus als auch ein redirect. „all" passt immer, die Auswertung endet also dort und das redirect ist toter Text.',
+  fd_spf_redirect_after_all: 'Der Eintrag hat sowohl einen „all“-Mechanismus als auch ein redirect. „all“ passt immer, die Auswertung endet also dort und das redirect ist toter Text.',
 
   flag_spf_record_long: 'Der SPF-Eintrag ist lang',
-  fd_spf_record_long: 'Lange Einträge werden auf dem Draht in mehrere Zeichenketten geteilt. Das ist für sich in Ordnung — Empfänger fügen sie ohne Trennzeichen zusammen —, aber genau dort beginnen Parser, die sie mit einem Leerzeichen verbinden, den Eintrag zu zerstören.',
+  fd_spf_record_long: 'Lange Einträge werden bei der Übertragung in mehrere Zeichenketten geteilt. Das ist für sich in Ordnung — Empfänger fügen sie ohne Trennzeichen zusammen —, aber genau dort beginnen Parser, die sie mit einem Leerzeichen verbinden, den Eintrag zu zerstören.',
 
   flag_spf_include_loop: 'Ein include zeigt auf etwas bereits Besuchtes zurück',
   fd_spf_include_loop: 'Die Auflösung läuft im Kreis. Ein Empfänger bricht beim Abfragelimit ab und gibt einen dauerhaften Fehler zurück.',
@@ -2190,7 +2190,7 @@ OWN.de = {
   flag_dmarc_no_policy: 'Der DMARC-Eintrag hat kein p=',
   fd_dmarc_no_policy: 'p= ist Pflicht. Ohne es wird der Eintrag ignoriert.',
 
-  flag_dmarc_invalid_policy: 'Die DMARC-Richtlinie ist kein anerkannter Wert',
+  flag_dmarc_invalid_policy: 'Der Wert der DMARC-Richtlinie wird nicht erkannt',
   fd_dmarc_invalid_policy: 'p= muss none, quarantine oder reject sein. Bei allem anderen verwerfen Empfänger den Eintrag.',
 
   flag_dmarc_policy_none: 'DMARC setzt nichts durch',
@@ -2209,7 +2209,7 @@ OWN.de = {
   fd_dmarc_no_reporting: 'Ohne rua= kommen keine Berichte, und damit gibt es keine Möglichkeit herauszufinden, wer als Ihre Domain sendet oder was beim Anziehen der Richtlinie kaputtginge.',
 
   flag_dmarc_external_reporting_unauthorised: 'Die externe Berichtsadresse hat Sie nicht genehmigt',
-  fd_dmarc_external_reporting_unauthorised: 'Die Berichte gehen an eine andere Domain, und diese veröffentlicht nicht den Eintrag, mit dem sie dem zustimmt (RFC 7489 §7.1). Regelkonforme Empfänger senden gar nichts. Der DMARC-Eintrag sieht makellos aus, die Berichte kommen nie an — und das wird fast immer damit erklärt, dass Berichte „eine Weile brauchen".',
+  fd_dmarc_external_reporting_unauthorised: 'Die Berichte gehen an eine andere Domain, und diese veröffentlicht nicht den Eintrag, mit dem sie dem zustimmt (RFC 7489 §7.1). Regelkonforme Empfänger senden gar nichts. Der DMARC-Eintrag sieht makellos aus, die Berichte kommen nie an — und das wird fast immer damit erklärt, dass Berichte „eine Weile brauchen“.',
 
   flag_mtasts_missing: 'Keine MTA-STS-Richtlinie',
   fd_mtasts_missing: 'STARTTLS ist opportunistisch: Ein Absender, der das Angebot nicht sieht, sendet im Klartext, und dieses Angebot zu entfernen ist für jeden zwischen den beiden Servern leicht. MTA-STS veröffentlicht über HTTPS, dass diese Domain immer TLS spricht — womit der Angriff verlangt, stattdessen die Web-PKI zu brechen.',
@@ -2235,7 +2235,7 @@ OWN.de = {
   flag_mtasts_policy_bad_version: 'Die Version der Richtlinie ist nicht STSv1',
   fd_mtasts_policy_bad_version: 'Absender verwenden keine Richtlinie, deren Version sie nicht kennen.',
 
-  flag_mtasts_policy_bad_mode: 'Der Modus der Richtlinie ist kein anerkannter Wert',
+  flag_mtasts_policy_bad_mode: 'Der Modus der Richtlinie wird nicht erkannt',
   fd_mtasts_policy_bad_mode: 'mode muss enforce, testing oder none sein.',
 
   flag_mtasts_mode_testing: 'MTA-STS steht im Testmodus',
@@ -2305,7 +2305,7 @@ OWN.de = {
   fd_banner_reveals_version: 'Ein kleines Geschenk an jeden, der nach Hosts mit einem bekannten Fehler in genau dieser Version sucht. In der Begrüßung kann alles Mögliche stehen.',
 
   flag_open_relay: 'Der Server leitet Post für Fremde weiter',
-  fd_open_relay: 'Er hat eine Nachricht von einem unbeteiligten Absender an einen unbeteiligten Empfänger angenommen. Jeder kann ihn benutzen, um in Ihrem Namen Spam zu verschicken, und er steht binnen Stunden auf Sperrlisten, falls nicht schon. Das repariert man heute. (Die Probe hielt bei RCPT TO an und schickte RSET — es wurde keine Nachricht versendet.)',
+  fd_open_relay: 'Er hat eine Nachricht von einem unbeteiligten Absender an einen unbeteiligten Empfänger angenommen. Jeder kann ihn benutzen, um in Ihrem Namen Spam zu verschicken, und er steht binnen Stunden auf Sperrlisten, falls nicht schon. Das gehört noch heute behoben. (Die Probe hielt bei RCPT TO an und schickte RSET — es wurde keine Nachricht versendet.)',
 
   flag_no_size_extension: 'Der Server kündigt SIZE nicht an',
   fd_no_size_extension: 'Ohne SIZE kann ein Absender nicht wissen, ob eine große Nachricht angenommen wird, bevor er sie vollständig übertragen hat.',
@@ -2706,7 +2706,7 @@ OWN.tr = {
   title: 'Posta denetimi — herhangi bir alan adı için SPF, DKIM, DMARC, MTA-STS ve DANE',
   title_short: 'Posta denetimi',
   h1: 'Posta denetimi',
-  subtitle: 'SPF her include boyunca açılır ve on sınırına karşı sayılır, DMARC hizalaması ve raporlaması, taşıma güvenliği ise gerçek bağlantı üzerinde denetlenir',
+  subtitle: 'SPF her include boyunca açılır ve on sorgu sınırına göre hesaplanır, DMARC hizalaması ve raporlaması, taşıma güvenliği ise gerçek bağlantı üzerinde denetlenir',
   ph_host: 'example.com',
   hero_label: 'Denetlenen alan adı',
   empty_hint: 'Bir alan adı girin. Denetim, SPF kaydını her include boyunca açar, büyük platformların kullandığı DKIM seçicilerini dener, DMARC ilkesini okur, MTA-STS ilkesini HTTPS üzerinden alır ve posta sunucularına yalnızca okuyan SMTP oturumları açar. Hiçbir zaman ileti gönderilmez.',
@@ -2810,7 +2810,7 @@ OWN.tr = {
 
   note_spf: 'RFC 7208, değerlendirmenin tamamında DNS sorgusu doğuran on terime izin verir; her include içindeki her include de sayılır. Onu aştığında alıcı permerror döndürmek zorundadır — ve permerror, SPF’in hiç uygulanmadığı anlamına gelir, tam olarak kayıt hiç yokmuş gibi.',
   note_dmarc: 'p=none ile hiçbir şey uygulanmaz: hem SPF hem DKIM hizalamasında başarısız olan bir ileti eskisi gibi teslim edilir. Başlamak için doğru, kalmak için yanlış yerdir.',
-  note_transport: 'STARTTLS fırsatçıdır: teklifi elinden alınan bir gönderici düpedüz açık metinle devam eder. MTA-STS ve DANE, bu olasılığı bir güvenceye çeviren şeydir.',
+  note_transport: 'STARTTLS fırsatçı şifreleme kullanır: duyuruyu göremeyen bir gönderici düpedüz açık metinle devam eder. MTA-STS ve DANE, bu olasılığı bir güvenceye çeviren şeydir.',
   note_sessions: 'Bütün oturumlar salt okunurdur. Aktarma yoklaması RCPT TO’da durur ve RSET gönderir; hiçbir zaman DATA komutu verilmez, dolayısıyla hiçbir ileti gönderilemez.',
   note_rdns: 'Tek başına bir PTR kaydı hiçbir şey kanıtlamaz — bir adres bloğunun sahibi oraya istediği adı yazabilir. Alıcıların denetlediği şey, o adın aynı adrese geri çözümlenip çözümlenmediğidir.',
 
@@ -2847,7 +2847,7 @@ OWN.tr = {
   cap_scan_incomplete: 'denetim eksik kaldı, bu yüzden not verilmedi',
 
   flag_null_mx: 'Alan adı postayla ilgilenmediğini bildiriyor',
-  fd_null_mx: 'Köke işaret eden 0 öncelikli tek bir MX, RFC 7505’in «bu alan adı posta göndermez ve almaz» ifadesidir. Bilinçli bir tercih ve hiç MX olmamasından çok daha iyi — MX yoksa göndericiler adres kaydına düşer.',
+  fd_null_mx: 'Köke işaret eden 0 öncelikli tek bir MX, RFC 7505’in “bu alan adı posta göndermez ve almaz” ifadesidir. Bilinçli bir tercih ve hiç MX olmamasından çok daha iyi — MX yoksa göndericiler A kaydına düşer.',
 
   flag_no_mx: 'MX kaydı yok',
   fd_no_mx: 'Bu alan adının postasının nereye gideceğini hiçbir şey söylemiyor ve geri düşülecek bir adres de yok, dolayısıyla teslim etmek düpedüz olanaksız.',
@@ -2886,13 +2886,13 @@ OWN.tr = {
   fd_spf_too_many_void_lookups: 'RFC 7208 hiçbir şeye çözümlenmeyen iki sorguya izin verir; ötesi kalıcı hatadır. Genellikle artık kullanılmayan bir hizmet için kalmış bir include’dur.',
 
   flag_spf_no_all: 'SPF’in varsayılanı yok',
-  fd_spf_no_all: '«all» mekanizması ya da redirect olmadan, hiçbir şeyle eşleşmeyen bir gönderici yansız sonuç alır — bu da hiç görüş bildirmemekle aynı şeydir.',
+  fd_spf_no_all: '“all” mekanizması ya da redirect olmadan, hiçbir şeyle eşleşmeyen bir gönderici yansız sonuç alır — bu da hiç görüş bildirmemekle aynı şeydir.',
 
   flag_spf_plus_all: 'SPF bütün interneti yetkilendiriyor',
-  fd_spf_plus_all: '«+all», herhangi bir yerdeki herhangi bir makinenin bu alan adı olarak gönderebileceğini söyler. Neredeyse her zaman niteleyicinin yanlış anlaşılmasıdır ve hiç SPF olmamasından kötüdür, çünkü sahtekâra açıkça kefil olur.',
+  fd_spf_plus_all: '“+all”, herhangi bir yerdeki herhangi bir makinenin bu alan adı olarak gönderebileceğini söyler. Neredeyse her zaman niteleyicinin yanlış anlaşılmasıdır ve hiç SPF olmamasından kötüdür, çünkü sahtekâra açıkça kefil olur.',
 
   flag_spf_neutral_all: 'SPF ?all ile bitiyor',
-  fd_spf_neutral_all: '«?all», hiçbir şeyle eşleşmeyen göndericiler hakkında bir şey söylemeyi açıkça reddeder. Alıcılar bunu sonuç yokluğu sayar.',
+  fd_spf_neutral_all: '“?all”, hiçbir şeyle eşleşmeyen göndericiler hakkında bir şey söylemeyi açıkça reddeder. Alıcılar bunu sonuç yokluğu sayar.',
 
   flag_spf_softfail_all: 'SPF -all yerine ~all ile bitiyor',
   fd_spf_softfail_all: 'Yumuşak başarısızlık, alıcılardan kabul etmelerini ama işaretlemelerini ister. Adınıza kimin gönderdiğini hâlâ öğrenirken doğru ayardır; öğrendikten sonra sıkılaştırılacak olandır.',
@@ -2907,7 +2907,7 @@ OWN.tr = {
   fd_spf_duplicate_redirect: 'İkinci bir redirect kaydı kalıcı hataya dönüştürür.',
 
   flag_spf_redirect_after_all: 'Hiçbir zaman ulaşılmayacak bir redirect',
-  fd_spf_redirect_after_all: 'Kayıtta hem bir «all» mekanizması hem de bir redirect var. «all» her zaman eşleşir, dolayısıyla değerlendirme orada durur ve redirect ölü metin olur.',
+  fd_spf_redirect_after_all: 'Kayıtta hem bir “all” mekanizması hem de bir redirect var. “all” her zaman eşleşir, dolayısıyla değerlendirme orada durur ve redirect ölü metin olur.',
 
   flag_spf_record_long: 'SPF kaydı uzun',
   fd_spf_record_long: 'Uzun kayıtlar aktarımda birkaç dizeye bölünür. Bu kendi başına sorun değil — alıcılar aralarına hiçbir şey koymadan birleştirir — ama onları boşlukla birleştiren ayrıştırıcıların kaydı bozmaya başladığı yer tam da burasıdır.',
@@ -2925,7 +2925,7 @@ OWN.tr = {
   fd_dkim_key_revoked: 'Kayıt boş bir p= ile yayımlanmış, bu da anahtarı iptal eder. Bir anahtarı emekliye ayırmanın doğru yolu budur — ve aylarca bu durumda bırakılmış bir kayıt genellikle kimsenin tamamlamadığı bir değişimdir.',
 
   flag_dkim_key_malformed: 'Bir DKIM anahtarı ayrıştırılamıyor',
-  fd_dkim_key_malformed: 'p= değeri geçerli anahtar malzemesi değil. Onunla üretilen her imza doğrulamada başarısız olur.',
+  fd_dkim_key_malformed: 'p= değeri geçerli bir anahtar olarak çözümlenmiyor. Onunla üretilen her imza doğrulamada başarısız olur.',
 
   flag_dkim_in_test_mode: 'Bir DKIM kaydı deneme kipinde',
   fd_dkim_in_test_mode: 't=y, alıcılara başarısız bir imzayı DKIM kullanılmıyormuş gibi ele almalarını söyler. Yeri devreye alma sürecidir, başka hiçbir yer değil.',
@@ -2967,10 +2967,10 @@ OWN.tr = {
   fd_dmarc_no_reporting: 'rua= olmadan rapor gelmez; bu da alan adınız olarak kimin gönderdiğini ya da ilkeyi sıkılaştırırsanız neyin bozulacağını öğrenmenin yolu yok demektir.',
 
   flag_dmarc_external_reporting_unauthorised: 'Dış rapor adresi size yetki vermemiş',
-  fd_dmarc_external_reporting_unauthorised: 'Raporlar başka bir alan adına yönlendirilmiş ve o alan adı, onları almayı kabul ettiği kaydı yayımlamıyor (RFC 7489 §7.1). Standarda uyan alıcılar hiçbir şey göndermez. DMARC kaydı kusursuz görünür ve raporlar hiç gelmez — bu da neredeyse her zaman raporların «biraz zaman aldığına» yorulur.',
+  fd_dmarc_external_reporting_unauthorised: 'Raporlar başka bir alan adına yönlendirilmiş ve o alan adı, onları almayı kabul ettiği kaydı yayımlamıyor (RFC 7489 §7.1). Standarda uyan alıcılar hiçbir şey göndermez. DMARC kaydı kusursuz görünür ve raporlar hiç gelmez — bu da neredeyse her zaman raporların “biraz zaman aldığına” yorulur.',
 
   flag_mtasts_missing: 'MTA-STS ilkesi yok',
-  fd_mtasts_missing: 'STARTTLS fırsatçıdır: teklifi görmeyen bir gönderici açık metinle gönderir ve o teklifi kaldırmak iki sunucu arasındaki herkes için kolaydır. MTA-STS, bu alan adının her zaman TLS konuştuğunu HTTPS üzerinden yayımlar; böylece saldırı bunun yerine web PKI’sini kırmayı gerektirir.',
+  fd_mtasts_missing: 'STARTTLS fırsatçı şifreleme kullanır: sunucunun şifreleme duyurusunu göremeyen bir gönderici açık metinle gönderir ve o duyuruyu yanıttan kaldırmak iki sunucu arasındaki herkes için kolaydır. MTA-STS, bu alan adının her zaman TLS konuştuğunu HTTPS üzerinden yayımlar; böylece saldırı bunun yerine web PKI’sini kırmayı gerektirir.',
 
   flag_mtasts_multiple_records: 'Birden fazla MTA-STS TXT kaydı',
   fd_mtasts_multiple_records: 'Göndericiler hangi kimliğin güncel olduğunu anlayamaz, dolayısıyla ilke değiştiğinde tazelenmeyebilir.',
@@ -3063,7 +3063,7 @@ OWN.tr = {
   fd_banner_reveals_version: 'Tam o sürümde bilinen bir hata arayan birine küçük bir armağan. Karşılamaya istenen her şey yazılabilir.',
 
   flag_open_relay: 'Sunucu yabancıların postasını aktarıyor',
-  fd_open_relay: 'İlgisiz bir göndericiden ilgisiz bir alıcıya ileti kabul etti. Herkes onu sizin adınıza istenmeyen posta göndermek için kullanabilir ve zaten değilse birkaç saat içinde engelleme listelerine düşer. Bu bugün onarılır. (Yoklama RCPT TO’da durdu ve RSET gönderdi — hiçbir ileti gönderilmedi.)',
+  fd_open_relay: 'İlgisiz bir göndericiden ilgisiz bir alıcıya ileti kabul etti. Herkes onu sizin adınıza istenmeyen posta göndermek için kullanabilir ve zaten değilse birkaç saat içinde engelleme listelerine düşer. Bunu bugün onarmak gerekir. (Yoklama RCPT TO’da durdu ve RSET gönderdi — hiçbir ileti gönderilmedi.)',
 
   flag_no_size_extension: 'Sunucu SIZE duyurmuyor',
   fd_no_size_extension: 'SIZE olmadan bir gönderici, büyük bir iletinin kabul edilip edilmeyeceğini tümünü aktarmadan bilemez.',
@@ -3226,7 +3226,7 @@ OWN.zh = {
   cap_scan_incomplete: '检测不完整，因此未给出评级',
 
   flag_null_mx: '该域名声明自己不处理邮件',
-  fd_null_mx: '仅有一条优先级为 0、指向根的 MX，正是 RFC 7505 所说的「本域名既不发信也不收信」。这是有意为之，而且比完全没有 MX 好得多 —— 没有 MX 时，发送方会退回到地址记录。',
+  fd_null_mx: '仅有一条优先级为 0、指向根的 MX，正是 RFC 7505 所说的“本域名既不发信也不收信”。这是有意为之，而且比完全没有 MX 好得多 —— 没有 MX 时，发送方会退回到 A 记录。',
 
   flag_no_mx: '没有 MX 记录',
   fd_no_mx: '没有任何东西说明这个域名的邮件该送往何处，也没有可退回的地址，因此根本无从投递。',
@@ -3265,13 +3265,13 @@ OWN.zh = {
   fd_spf_too_many_void_lookups: 'RFC 7208 允许两次解析不到任何东西的查询；再多就是永久性错误。通常是某个已经不用的服务留下的 include。',
 
   flag_spf_no_all: 'SPF 没有默认处置',
-  fd_spf_no_all: '既没有「all」机制也没有 redirect 时，任何都匹配不上的发送方得到的是中立结果 —— 这跟没有任何意见是一回事。',
+  fd_spf_no_all: '既没有“all”机制也没有 redirect 时，任何都匹配不上的发送方得到的是中立结果 —— 这跟没有任何意见是一回事。',
 
   flag_spf_plus_all: 'SPF 授权了整个互联网',
-  fd_spf_plus_all: '「+all」等于说任何地方的任何主机都可以用这个域名发信。这几乎总是对限定符的误解，而且比没有 SPF 更糟，因为它明确为伪造者背书。',
+  fd_spf_plus_all: '“+all”等于说任何地方的任何主机都可以用这个域名发信。这几乎总是对限定符的误解，而且比没有 SPF 更糟，因为它明确为伪造者背书。',
 
   flag_spf_neutral_all: 'SPF 以 ?all 结尾',
-  fd_spf_neutral_all: '「?all」明确拒绝对匹配不上的发送方表态。接收方把它当作没有结果。',
+  fd_spf_neutral_all: '“?all”明确拒绝对匹配不上的发送方表态。接收方把它当作没有结果。',
 
   flag_spf_softfail_all: 'SPF 以 ~all 而非 -all 结尾',
   fd_spf_softfail_all: '软失败请求接收方收下但打上标记。在你还在摸清谁在以你的名义发信时，这是正确的设置；摸清之后，它就是该收紧的地方。',
@@ -3286,7 +3286,7 @@ OWN.zh = {
   fd_spf_duplicate_redirect: '第二个 redirect 会让整条记录变成永久性错误。',
 
   flag_spf_redirect_after_all: '永远走不到的 redirect',
-  fd_spf_redirect_after_all: '这条记录既有「all」机制又有 redirect。「all」永远匹配，求值到此为止，redirect 便成了死文本。',
+  fd_spf_redirect_after_all: '这条记录既有“all”机制又有 redirect。“all”永远匹配，求值到此为止，redirect 便成了死文本。',
 
   flag_spf_record_long: 'SPF 记录很长',
   fd_spf_record_long: '长记录在传输时会被拆成多个字符串。这本身没问题 —— 接收方会不加分隔地拼回去 —— 但正是在这里，用空格连接它们的解析器开始悄悄毁掉这条记录。',
@@ -3346,7 +3346,7 @@ OWN.zh = {
   fd_dmarc_no_reporting: '没有 rua= 就收不到报告，也就无从知道谁在以你的域名发信，更无从知道收紧策略会打断什么。',
 
   flag_dmarc_external_reporting_unauthorised: '外部报告地址并未授权给你',
-  fd_dmarc_external_reporting_unauthorised: '报告被指向了另一个域名，而那个域名并未发布同意接收的记录（RFC 7489 §7.1）。守规矩的接收方什么也不会发。DMARC 记录看上去完美无缺，报告却始终不来 —— 而这几乎总是被归因于「报告要等一阵子」。',
+  fd_dmarc_external_reporting_unauthorised: '报告被指向了另一个域名，而那个域名并未发布同意接收的记录（RFC 7489 §7.1）。守规矩的接收方什么也不会发。DMARC 记录看上去完美无缺，报告却始终不来 —— 而这几乎总是被归因于“报告要等一阵子”。',
 
   flag_mtasts_missing: '没有 MTA-STS 策略',
   fd_mtasts_missing: 'STARTTLS 是机会性的：看不到这项提议的发送方就以明文发送，而对夹在两台服务器之间的任何人来说，抹掉这项提议轻而易举。MTA-STS 通过 HTTPS 公布本域名始终使用 TLS，于是这种攻击转而需要击破 Web PKI。',
@@ -3464,7 +3464,7 @@ OWN.ja = {
   title: 'メール検査 — 任意のドメインの SPF・DKIM・DMARC・MTA-STS・DANE',
   title_short: 'メール検査',
   h1: 'メール検査',
-  subtitle: 'SPF をすべての include まで展開して十回の上限に照らして数え、DMARC の整合と報告を読み、transport の保護は実際の接続で確かめます',
+  subtitle: 'SPF をすべての include まで展開して十回の上限に照らして数え、DMARC の整合と報告を読み、転送の保護は実際の接続で確かめます',
   ph_host: 'example.com',
   hero_label: '検査対象のドメイン',
   empty_hint: 'ドメイン名を入力してください。検査は SPF レコードをすべての include まで展開し、大手プラットフォームが使う DKIM セレクターを試し、DMARC ポリシーを読み、MTA-STS ポリシーを HTTPS で取得し、メールサーバーへ読み取り専用の SMTP セッションを開きます。メールを送信することは一切ありません。',
@@ -3605,7 +3605,7 @@ OWN.ja = {
   cap_scan_incomplete: '検査が不完全なため、評価は付けていません',
 
   flag_null_mx: 'このドメインはメールを扱わないと宣言しています',
-  fd_null_mx: '優先度 0 でルートを指す MX が一つだけ、というのは RFC 7505 の「このドメインはメールを送りも受けもしない」です。意図的であり、MX がまったくないよりずっと良いものです — MX がなければ送信者はアドレスレコードに落ちてしまいます。',
+  fd_null_mx: '優先度 0 でルートを指す MX が一つだけ、というのは、RFC 7505 が定める「このドメインはメールを送りも受けもしない」という表明です。意図的であり、MX がまったくないよりずっと良いものです — MX がなければ送信者は A レコードに落ちてしまいます。',
 
   flag_no_mx: 'MX レコードがありません',
   fd_no_mx: 'このドメイン宛のメールをどこへ送るのか何も示されておらず、代わりに使えるアドレスもありません。つまり配送しようがありません。',
@@ -3821,7 +3821,7 @@ OWN.ja = {
   fd_banner_reveals_version: 'その版に既知の不具合があるホストを探している者への、ささやかな贈り物です。挨拶には何とでも書けます。',
 
   flag_open_relay: 'サーバーが見ず知らずの相手のメールを中継しています',
-  fd_open_relay: '無関係な送信者から無関係な宛先へのメールを受け付けました。誰でもあなたの名前で迷惑メールを送れますし、まだでなければ数時間のうちにブロックリストに載ります。これは今日直すものです。（検査は RCPT TO で止めて RSET を送りました — メールは一通も送っていません。）',
+  fd_open_relay: '無関係な送信者から無関係な宛先へのメールを受け付けました。誰でもあなたの名前で迷惑メールを送れますし、まだでなければ数時間のうちにブロックリストに載ります。これは今日中に直すべきものです。（検査は RCPT TO で止めて RSET を送りました — メールは一通も送っていません。）',
 
   flag_no_size_extension: 'サーバーが SIZE を告知しません',
   fd_no_size_extension: 'SIZE がないと、送信者は大きなメールが受け入れられるかどうかを、全部送り終えるまで知ることができません。',
@@ -3843,10 +3843,10 @@ OWN.hi = {
   title: 'मेल जाँच — किसी भी डोमेन के लिए SPF, DKIM, DMARC, MTA-STS और DANE',
   title_short: 'मेल जाँच',
   h1: 'मेल जाँच',
-  subtitle: 'SPF हर include से होकर खोला जाता है और दस की सीमा के सामने गिना जाता है, DMARC का संरेखण और रिपोर्टिंग, और परिवहन की सुरक्षा असली कनेक्शन पर परखी जाती है',
+  subtitle: 'SPF हर include से होकर खोला जाता है और दस की सीमा में गिना जाता है, DMARC का संरेखण और रिपोर्टिंग, और परिवहन की सुरक्षा असली कनेक्शन पर परखी जाती है',
   ph_host: 'example.com',
   hero_label: 'जाँचा जा रहा डोमेन',
-  empty_hint: 'एक डोमेन नाम डालें। जाँच SPF अभिलेख को हर include से होकर खोलती है, बड़े प्लेटफ़ॉर्म जिन DKIM चयनकों का उपयोग करते हैं उन्हें आज़माती है, DMARC नीति पढ़ती है, MTA-STS नीति HTTPS से लाती है और मेल सर्वरों से केवल-पढ़ने वाले SMTP सत्र खोलती है। कोई संदेश कभी नहीं भेजा जाता।',
+  empty_hint: 'एक डोमेन नाम डालें। जाँच SPF रिकॉर्ड को हर include से होकर खोलती है, बड़े प्लेटफ़ॉर्म जिन DKIM चयनकों का उपयोग करते हैं उन्हें आज़माती है, DMARC नीति पढ़ती है, MTA-STS नीति HTTPS से लाती है और मेल सर्वरों से केवल-पढ़ने वाले SMTP सत्र खोलती है। कोई संदेश कभी नहीं भेजा जाता।',
 
   stage_resolve: 'मेल सर्वर खोजे जा रहे हैं',
   stage_mx: 'MX समूह की जाँच',
@@ -3872,10 +3872,10 @@ OWN.hi = {
   comp_transport: 'परिवहन',
   comp_hygiene: 'स्वच्छता',
 
-  k_mx_count: 'MX अभिलेख',
+  k_mx_count: 'MX रिकॉर्ड',
   k_null_mx: 'शून्य MX',
   k_ipv6_mx: 'IPv6 से पहुँच योग्य',
-  k_spf_record: 'अभिलेख',
+  k_spf_record: 'रिकॉर्ड',
   k_spf_lookups: 'उपयोग किए गए DNS प्रश्न',
   k_spf_voids: 'खाली प्रश्न',
   k_spf_policy: 'बाकी सबके लिए डिफ़ॉल्ट',
@@ -3930,7 +3930,7 @@ OWN.hi = {
   spfterm_no_target: 'कोई लक्ष्य नहीं',
   spfterm_loop: 'चक्र — पहले ही आ चुके',
   spfterm_lookup_failed: 'प्रश्न विफल',
-  spfterm_no_spf_record: 'वहाँ SPF अभिलेख नहीं है',
+  spfterm_no_spf_record: 'वहाँ SPF रिकॉर्ड नहीं है',
 
   stsmode_enforce: 'enforce — लागू करें',
   stsmode_testing: 'testing — केवल रिपोर्ट',
@@ -3945,20 +3945,20 @@ OWN.hi = {
   v_blocked_here: 'हमारे नेटवर्क से अवरुद्ध',
   v_no_selector_found: '{n} ज्ञात चयनकों में से एक भी नहीं',
 
-  note_spf: 'RFC 7208 पूरी गणना में DNS प्रश्न करने वाले दस पदों की अनुमति देता है, और हर include के भीतर के हर include को भी गिना जाता है। दस के बाद प्राप्तकर्ता को permerror लौटाना ही पड़ता है — और permerror का अर्थ है कि SPF लागू ही नहीं होता, ठीक वैसे जैसे कोई अभिलेख हो ही न।',
+  note_spf: 'RFC 7208 पूरी गणना में DNS प्रश्न करने वाले दस पदों की अनुमति देता है, और हर include के भीतर के हर include को भी गिना जाता है। दस के बाद प्राप्तकर्ता को permerror लौटाना ही पड़ता है — और permerror का अर्थ है कि SPF लागू ही नहीं होता, ठीक वैसे जैसे कोई रिकॉर्ड हो ही न।',
   note_dmarc: 'p=none के साथ कुछ भी लागू नहीं होता: जो संदेश SPF और DKIM दोनों के संरेखण में विफल होता है वह पहले की तरह ही पहुँचा दिया जाता है। शुरू करने के लिए यह सही जगह है और ठहरने के लिए ग़लत।',
-  note_transport: 'STARTTLS अवसरवादी है: जिस भेजने वाले से यह प्रस्ताव छीन लिया जाए वह बस खुले पाठ में आगे बढ़ जाता है। MTA-STS और DANE ही वह चीज़ हैं जो इस संभावना को गारंटी में बदलती हैं।',
+  note_transport: 'STARTTLS वैकल्पिक है: जिस भेजने वाले से शिफ़रिंग की घोषणा हटा दी जाए वह बस खुले पाठ में आगे बढ़ जाता है। MTA-STS और DANE ही वह चीज़ हैं जो इस संभावना को गारंटी में बदलती हैं।',
   note_sessions: 'हर सत्र केवल पढ़ने के लिए है। रिले की जाँच RCPT TO पर रुकती है और RSET भेजती है; DATA आदेश कभी नहीं दिया जाता, इसलिए कोई संदेश भेजा ही नहीं जा सकता।',
-  note_rdns: 'अकेला PTR अभिलेख कुछ भी सिद्ध नहीं करता — पतों के खंड का मालिक वहाँ कोई भी नाम लिख सकता है। प्राप्तकर्ता यह देखते हैं कि वह नाम उसी पते पर वापस हल होता है या नहीं।',
+  note_rdns: 'अकेला PTR रिकॉर्ड कुछ भी सिद्ध नहीं करता — पतों के खंड का मालिक वहाँ कोई भी नाम लिख सकता है। प्राप्तकर्ता यह देखते हैं कि वह नाम उसी पते पर वापस हल होता है या नहीं।',
 
   err_smtp_timeout: 'मेल सर्वर ने समय पर उत्तर नहीं दिया।',
   err_smtp_network: 'मेल सर्वर तक पहुँचा नहीं जा सका।',
   err_smtp_refused: 'मेल सर्वर ने कनेक्शन अस्वीकार कर दिया।',
   err_tls_failed: 'मेल सर्वर के साथ TLS हाथ मिलाना विफल रहा।',
 
-  inc_mx_lookup_failed: 'MX अभिलेख पढ़े नहीं जा सके',
-  inc_spf_lookup_failed: 'SPF अभिलेख पढ़ा नहीं जा सका',
-  inc_dmarc_lookup_failed: 'DMARC अभिलेख पढ़ा नहीं जा सका',
+  inc_mx_lookup_failed: 'MX रिकॉर्ड पढ़े नहीं जा सके',
+  inc_spf_lookup_failed: 'SPF रिकॉर्ड पढ़ा नहीं जा सका',
+  inc_dmarc_lookup_failed: 'DMARC रिकॉर्ड पढ़ा नहीं जा सका',
   inc_port_25_unreachable_from_this_network: 'जहाँ यह सेवा चलती है वहाँ बाहर जाने वाला पोर्ट 25 अवरुद्ध है, इसलिए STARTTLS, असली प्रमाणपत्र से DANE का मिलान और रिले की जाँच नहीं हो सकी',
   inc_not_every_mx_was_probed: 'केवल सबसे ऊँची प्राथमिकता वाले सर्वरों से जुड़ा गया',
 
@@ -3972,8 +3972,8 @@ OWN.hi = {
   cap_spf_permerror: 'SPF एक स्थायी त्रुटि है',
   cap_dmarc_permerror: 'DMARC एक स्थायी त्रुटि है',
   cap_mail_in_the_clear: 'डाक बिना कूटलेखन के स्वीकार की जाती है',
-  cap_no_spf: 'कोई SPF अभिलेख नहीं',
-  cap_no_dmarc: 'कोई DMARC अभिलेख नहीं',
+  cap_no_spf: 'कोई SPF रिकॉर्ड नहीं',
+  cap_no_dmarc: 'कोई DMARC रिकॉर्ड नहीं',
   cap_starttls_broken: 'STARTTLS दिया जाता है और काम नहीं करता',
   cap_dmarc_not_enforcing: 'DMARC कुछ भी लागू नहीं करता',
   cap_no_reverse_dns: 'कोई पुष्ट उल्टा DNS नहीं',
@@ -3984,21 +3984,21 @@ OWN.hi = {
   cap_scan_incomplete: 'जाँच अधूरी रही, इसलिए कोई श्रेणी नहीं दी गई',
 
   flag_null_mx: 'डोमेन घोषित करता है कि वह डाक नहीं संभालता',
-  fd_null_mx: 'प्राथमिकता 0 वाला अकेला MX जो जड़ की ओर इशारा करे, वह RFC 7505 का «यह डोमेन न डाक भेजता है न लेता है» है। यह जानबूझकर है और MX के बिल्कुल न होने से कहीं बेहतर — MX न हो तो भेजने वाले पते वाले अभिलेख पर लौट जाते हैं।',
+  fd_null_mx: 'प्राथमिकता 0 वाला अकेला MX जो जड़ की ओर इशारा करे, वह RFC 7505 में बताया गया तरीका है यह कहने का कि यह डोमेन न डाक भेजता है न लेता है। यह जानबूझकर है और MX के बिल्कुल न होने से कहीं बेहतर — MX न हो तो भेजने वाले A रिकॉर्ड पर लौट जाते हैं।',
 
-  flag_no_mx: 'कोई MX अभिलेख नहीं',
+  flag_no_mx: 'कोई MX रिकॉर्ड नहीं',
   fd_no_mx: 'कुछ भी नहीं बताता कि इस डोमेन की डाक कहाँ जाए, और लौटने के लिए कोई पता भी नहीं है, इसलिए पहुँचाना बस असंभव है।',
 
-  flag_no_mx_falls_back_to_a: 'MX न होने पर भेजने वाले A अभिलेख पर लौटते हैं',
-  fd_no_mx_falls_back_to_a: 'RFC 5321 §5.1 बिना MX वाले भेजने वाले को पते वाला अभिलेख आज़माने को कहता है। इस डोमेन की डाक उसी को मिलेगी जो वेब सर्वर के पोर्ट 25 पर सुन रहा है — और यह शायद ही कभी अभिप्रेत होता है।',
+  flag_no_mx_falls_back_to_a: 'MX न होने पर भेजने वाले A रिकॉर्ड पर लौटते हैं',
+  fd_no_mx_falls_back_to_a: 'RFC 5321 §5.1 बिना MX वाले भेजने वाले को पते वाला रिकॉर्ड आज़माने को कहता है। इस डोमेन की डाक उसी को मिलेगी जो वेब सर्वर के पोर्ट 25 पर सुन रहा है — और यह शायद ही कभी अभिप्रेत होता है।',
 
   flag_duplicate_mx_host: 'वही होस्ट दो बार दर्ज है',
   fd_duplicate_mx_host: 'एक होस्ट एक से अधिक प्राथमिकताओं पर दिखता है। यह अतिरेक नहीं है; यह वही मशीन है जिसे दो बार आज़माया जाएगा।',
 
   flag_mx_does_not_resolve: 'किसी मेल सर्वर का नाम हल नहीं होता',
-  fd_mx_does_not_resolve: 'MX ऐसे होस्ट का नाम लेता है जिसके पते वाले अभिलेख नहीं हैं। इस प्राथमिकता तक पहुँचा हर भेजने वाला प्रश्न की प्रतीक्षा करता है, कुछ नहीं पाता और आगे बढ़ जाता है — और जो डाक तुरंत पहुँचनी थी वह देर से पहुँचती है।',
+  fd_mx_does_not_resolve: 'MX ऐसे होस्ट का नाम लेता है जिसके पते वाले रिकॉर्ड नहीं हैं। इस प्राथमिकता तक पहुँचा हर भेजने वाला प्रश्न की प्रतीक्षा करता है, कुछ नहीं पाता और आगे बढ़ जाता है — और जो डाक तुरंत पहुँचनी थी वह देर से पहुँचती है।',
 
-  flag_mx_points_at_cname: 'एक MX अभिलेख उपनाम की ओर इशारा करता है',
+  flag_mx_points_at_cname: 'एक MX रिकॉर्ड उपनाम की ओर इशारा करता है',
   fd_mx_points_at_cname: 'RFC 2181 §10.3 माँगता है कि MX पते वाले होस्ट का नाम ले, CNAME का नहीं। कुछ भेजने वाले निभा लेते हैं, कुछ मना कर देते हैं, और कौन क्या करता है यह समय के साथ बदलता रहता है।',
 
   flag_single_mx: 'केवल एक मेल सर्वर',
@@ -4007,14 +4007,14 @@ OWN.hi = {
   flag_no_ipv6_mx: 'कोई मेल सर्वर IPv6 से पहुँच योग्य नहीं',
   fd_no_ipv6_mx: 'केवल-IPv6 नेटवर्क के भेजने वाले इस डोमेन तक अनुवादक के रास्ते पहुँचते हैं, अगर पहुँचते हैं तो।',
 
-  flag_spf_missing: 'कोई SPF अभिलेख नहीं',
-  fd_spf_missing: 'कुछ भी नहीं बताता कि कौन-से सर्वर इस डोमेन के नाम से डाक भेज सकते हैं, इसलिए मिलान करने को भी कुछ नहीं है। SPF एक TXT अभिलेख है और इस पूरे पन्ने की सबसे सस्ती चीज़।',
+  flag_spf_missing: 'कोई SPF रिकॉर्ड नहीं',
+  fd_spf_missing: 'कुछ भी नहीं बताता कि कौन-से सर्वर इस डोमेन के नाम से डाक भेज सकते हैं, इसलिए मिलान करने को भी कुछ नहीं है। SPF एक TXT रिकॉर्ड है और इस पूरे पन्ने की सबसे सस्ती चीज़।',
 
-  flag_spf_multiple_records: 'एक से अधिक SPF अभिलेख',
-  fd_spf_multiple_records: 'RFC 7208 §4.5 दो अभिलेखों को स्थायी त्रुटि बना देता है, और permerror का अर्थ है SPF का कोई परिणाम ही नहीं — दूसरा जोड़ने के इरादे के ठीक उलट। इन्हें एक में मिलाना चाहिए।',
+  flag_spf_multiple_records: 'एक से अधिक SPF रिकॉर्ड',
+  fd_spf_multiple_records: 'RFC 7208 §4.5 दो रिकॉर्ड को स्थायी त्रुटि बना देता है, और permerror का अर्थ है SPF का कोई परिणाम ही नहीं — दूसरा जोड़ने के इरादे के ठीक उलट। इन्हें एक में मिलाना चाहिए।',
 
   flag_spf_too_many_lookups: 'SPF को दस से अधिक DNS प्रश्न चाहिए',
-  fd_spf_too_many_lookups: 'RFC 7208 §4.6.4 की सीमा पूरी गणना में प्रश्न करने वाले दस पद है, और हर include के भीतर के हर include को भी गिना जाता है। इसके आगे प्राप्तकर्ता को permerror लौटाना पड़ता है और SPF लागू होना बंद हो जाता है — अभिलेख न होता तो भी वही बात। एक और प्रदाता जोड़ते ही सीमा पार हो जाती है, और अभिलेख को देखकर यह बिल्कुल पता नहीं चलता।',
+  fd_spf_too_many_lookups: 'RFC 7208 §4.6.4 की सीमा पूरी गणना में प्रश्न करने वाले दस पद है, और हर include के भीतर के हर include को भी गिना जाता है। इसके आगे प्राप्तकर्ता को permerror लौटाना पड़ता है और SPF लागू होना बंद हो जाता है — रिकॉर्ड न होता तो भी वही बात। एक और प्रदाता जोड़ते ही सीमा पार हो जाती है, और रिकॉर्ड को देखकर यह बिल्कुल पता नहीं चलता।',
 
   flag_spf_lookups_near_limit: 'SPF दस प्रश्नों की सीमा के पास है',
   fd_spf_lookups_near_limit: 'गुंजाइश लगभग नहीं बची। अगली जोड़ी गई सेवा — या किसी और के include के भीतर का बदलाव, जिस पर आपका ज़ोर नहीं — इसे सीमा के पार ले जाएगी।',
@@ -4023,13 +4023,13 @@ OWN.hi = {
   fd_spf_too_many_void_lookups: 'RFC 7208 दो ऐसे प्रश्नों की छूट देता है जो कुछ नहीं देते; उससे आगे स्थायी त्रुटि है। आमतौर पर यह किसी अब अनुपयोगी सेवा का छूटा हुआ include होता है।',
 
   flag_spf_no_all: 'SPF का कोई डिफ़ॉल्ट नहीं',
-  fd_spf_no_all: '«all» तंत्र और redirect दोनों के बिना, जिस भेजने वाले से कुछ मेल नहीं खाता उसे तटस्थ परिणाम मिलता है — जो कोई राय न रखने के बराबर है।',
+  fd_spf_no_all: '“all” तंत्र और redirect दोनों के बिना, जिस भेजने वाले से कुछ मेल नहीं खाता उसे तटस्थ परिणाम मिलता है — जो कोई राय न रखने के बराबर है।',
 
   flag_spf_plus_all: 'SPF पूरे इंटरनेट को अधिकृत करता है',
-  fd_spf_plus_all: '«+all» कहता है कि कहीं का भी कोई भी होस्ट इस डोमेन के नाम से भेज सकता है। यह लगभग हमेशा क्वालिफ़ायर की ग़लतफ़हमी है, और SPF के न होने से भी बुरा है, क्योंकि यह जालसाज़ के लिए स्पष्ट रूप से गारंटी देता है।',
+  fd_spf_plus_all: '“+all” कहता है कि कहीं का भी कोई भी होस्ट इस डोमेन के नाम से भेज सकता है। यह लगभग हमेशा क्वालिफ़ायर की ग़लतफ़हमी है, और SPF के न होने से भी बुरा है, क्योंकि यह जालसाज़ के लिए स्पष्ट रूप से गारंटी देता है।',
 
   flag_spf_neutral_all: 'SPF ?all पर समाप्त होता है',
-  fd_spf_neutral_all: '«?all» उन भेजने वालों के बारे में कुछ भी कहने से स्पष्ट इनकार करता है जिनसे कुछ मेल नहीं खाता। प्राप्तकर्ता इसे परिणाम की अनुपस्थिति मानते हैं।',
+  fd_spf_neutral_all: '“?all” उन भेजने वालों के बारे में कुछ भी कहने से स्पष्ट इनकार करता है जिनसे कुछ मेल नहीं खाता। प्राप्तकर्ता इसे परिणाम की अनुपस्थिति मानते हैं।',
 
   flag_spf_softfail_all: 'SPF -all के बजाय ~all पर समाप्त होता है',
   fd_spf_softfail_all: 'नरम विफलता प्राप्तकर्ताओं से स्वीकार करने पर निशान लगाने को कहती है। जब तक आप पता लगा रहे हैं कि आपके नाम से कौन भेजता है, यह सही सेटिंग है; पता चल जाने पर यही कसने की चीज़ है।',
@@ -4038,55 +4038,55 @@ OWN.hi = {
   fd_spf_uses_ptr: 'RFC 7208 §5.5 इसे सीधे-सीधे अप्रचलित घोषित करता है: यह धीमा है, भरोसेमंद नहीं है, और काम को उलटे ज़ोन चलाने वाले पर डाल देता है। कुछ प्राप्तकर्ता इसे पूरी तरह अनदेखा करते हैं।',
 
   flag_spf_unknown_mechanism: 'SPF में ऐसा पद है जिसे कोई नहीं समझता',
-  fd_spf_unknown_mechanism: 'अपरिचित तंत्र RFC 7208 §4.6.1 के अनुसार स्थायी त्रुटि है और पूरे अभिलेख को रद्द कर देता है। आमतौर पर यह टाइपिंग की भूल होती है।',
+  fd_spf_unknown_mechanism: 'अपरिचित तंत्र RFC 7208 §4.6.1 के अनुसार स्थायी त्रुटि है और पूरे रिकॉर्ड को रद्द कर देता है। आमतौर पर यह टाइपिंग की भूल होती है।',
 
   flag_spf_duplicate_redirect: 'एक से अधिक redirect संशोधक',
-  fd_spf_duplicate_redirect: 'दूसरा redirect अभिलेख को स्थायी त्रुटि बना देता है।',
+  fd_spf_duplicate_redirect: 'दूसरा redirect रिकॉर्ड को स्थायी त्रुटि बना देता है।',
 
   flag_spf_redirect_after_all: 'ऐसा redirect जहाँ कभी नहीं पहुँचा जाएगा',
-  fd_spf_redirect_after_all: 'अभिलेख में «all» तंत्र भी है और redirect भी। «all» हमेशा मेल खाता है, इसलिए गणना वहीं रुक जाती है और redirect मृत पाठ रह जाता है।',
+  fd_spf_redirect_after_all: 'रिकॉर्ड में “all” तंत्र भी है और redirect भी। “all” हमेशा मेल खाता है, इसलिए गणना वहीं रुक जाती है और redirect मृत पाठ रह जाता है।',
 
-  flag_spf_record_long: 'SPF अभिलेख लंबा है',
-  fd_spf_record_long: 'लंबे अभिलेख भेजते समय कई हिस्सों में बँट जाते हैं। यह अपने आप में ठीक है — प्राप्तकर्ता उन्हें बिना कुछ डाले जोड़ लेते हैं — पर ठीक यहीं वे विश्लेषक अभिलेख को बिगाड़ना शुरू करते हैं जो उन्हें खाली स्थान से जोड़ते हैं।',
+  flag_spf_record_long: 'SPF रिकॉर्ड लंबा है',
+  fd_spf_record_long: 'लंबे रिकॉर्ड भेजते समय कई हिस्सों में बँट जाते हैं। यह अपने आप में ठीक है — प्राप्तकर्ता उन्हें बिना कुछ डाले जोड़ लेते हैं — पर ठीक यहीं वे पार्सर रिकॉर्ड को बिगाड़ना शुरू करते हैं जो उन्हें खाली स्थान से जोड़ते हैं।',
 
   flag_spf_include_loop: 'कोई include वहीं वापस इशारा करता है जहाँ पहले आ चुके',
   fd_spf_include_loop: 'विस्तार चक्र में पड़ जाता है। प्राप्तकर्ता प्रश्नों की सीमा पर रुककर स्थायी त्रुटि लौटा देता है।',
 
-  flag_spf_include_without_record: 'कोई include ऐसे डोमेन की ओर है जिसमें SPF अभिलेख नहीं',
+  flag_spf_include_without_record: 'कोई include ऐसे डोमेन की ओर है जिसमें SPF रिकॉर्ड नहीं',
   fd_spf_include_without_record: 'RFC 7208 §5.2 इसे केवल बर्बाद हुआ प्रश्न नहीं, बल्कि स्थायी त्रुटि मानता है। आमतौर पर यह ऐसी सेवा है जो एक छोर पर हटा दी गई और दूसरे पर नहीं।',
 
   flag_dkim_no_known_selector: 'हमें ज्ञात किसी भी चयनक पर DKIM कुंजी नहीं मिली',
   fd_dkim_no_known_selector: 'चयनक वही चुनता है जो हस्ताक्षर करता है, और वे केवल हस्ताक्षरित संदेश के शीर्ष में दिखते हैं, इसलिए बाहर से उन्हें गिना नहीं जा सकता। यह इस बात का प्रमाण नहीं कि DKIM नहीं है — अगर आप अपना चयनक जानते हैं तो ?selector= से भेजें, जाँच निर्णायक हो जाएगी।',
 
   flag_dkim_key_revoked: 'एक DKIM कुंजी निरस्त कर दी गई है',
-  fd_dkim_key_revoked: 'अभिलेख खाली p= के साथ प्रकाशित है, जो कुंजी को निरस्त करता है। किसी कुंजी को विदा करने का यही सही तरीका है — और महीनों से इसी हाल में पड़ा अभिलेख आमतौर पर ऐसी अदला-बदली है जिसे किसी ने पूरा नहीं किया।',
+  fd_dkim_key_revoked: 'रिकॉर्ड खाली p= के साथ प्रकाशित है, जो कुंजी को निरस्त करता है। किसी कुंजी को विदा करने का यही सही तरीका है — और महीनों से इसी हाल में पड़ा रिकॉर्ड आमतौर पर ऐसी अदला-बदली है जिसे किसी ने पूरा नहीं किया।',
 
   flag_dkim_key_malformed: 'एक DKIM कुंजी पढ़ी नहीं जा सकती',
-  fd_dkim_key_malformed: 'p= का मान वैध कुंजी सामग्री नहीं है। उससे बना हर हस्ताक्षर सत्यापन में विफल होगा।',
+  fd_dkim_key_malformed: 'p= का मान वैध कुंजी के रूप में नहीं पढ़ा जाता। उससे बना हर हस्ताक्षर सत्यापन में विफल होगा।',
 
-  flag_dkim_in_test_mode: 'एक DKIM अभिलेख परीक्षण विधा में है',
+  flag_dkim_in_test_mode: 'एक DKIM रिकॉर्ड परीक्षण विधा में है',
   fd_dkim_in_test_mode: 't=y प्राप्तकर्ताओं से कहता है कि विफल हस्ताक्षर को ऐसे लें मानो DKIM उपयोग में ही न हो। इसकी जगह केवल लागू करने की प्रक्रिया है, और कहीं नहीं।',
 
   flag_dkim_key_too_short: 'एक DKIM कुंजी 1024 बिट से छोटी है',
   fd_dkim_key_too_short: '1024 बिट से नीचे हस्ताक्षर की नकल बनाना ख़ास कठिन नहीं है, और कई प्राप्तकर्ता ऐसी कुंजियों को सीधे अनदेखा कर देते हैं।',
 
   flag_dkim_key_1024_bit: 'एक DKIM कुंजी 1024 बिट की है',
-  fd_dkim_key_1024_bit: 'अब भी हर जगह स्वीकार्य है और मौजूदा सिफ़ारिशों से नीचे। सामान्य आकार 2048 है; बदलाव का अर्थ है एक नया चयनक और एक DNS अभिलेख।',
+  fd_dkim_key_1024_bit: 'अब भी हर जगह स्वीकार्य है और मौजूदा सिफ़ारिशों से नीचे। सामान्य आकार 2048 है; बदलाव का अर्थ है एक नया चयनक और एक DNS रिकॉर्ड।',
 
-  flag_dmarc_missing: 'कोई DMARC अभिलेख नहीं',
+  flag_dmarc_missing: 'कोई DMARC रिकॉर्ड नहीं',
   fd_dmarc_missing: 'DMARC के बिना SPF और DKIM के परिणाम केवल सलाह हैं: कुछ भी उन्हें उस पते से नहीं बाँधता जो पढ़ने वाला वास्तव में देखता है, और कुछ भी प्राप्तकर्ताओं को नहीं बताता कि विफलता पर क्या करें।',
 
   flag_dmarc_inherited: 'DMARC मूल डोमेन से विरासत में मिला है',
-  fd_dmarc_inherited: 'इस नाम का अपना अभिलेख नहीं है, इसलिए संगठनात्मक डोमेन की नीति लागू होती है — उसका sp= यदि हो, अन्यथा उसका p=।',
+  fd_dmarc_inherited: 'इस नाम का अपना रिकॉर्ड नहीं है, इसलिए संगठनात्मक डोमेन की नीति लागू होती है — उसका sp= यदि हो, अन्यथा उसका p=।',
 
-  flag_dmarc_multiple_records: 'एक से अधिक DMARC अभिलेख',
-  fd_dmarc_multiple_records: 'RFC 7489 §6.6.3: एक से अधिक अभिलेख होने पर नीति पूरी तरह छोड़ दी जाती है, मानो कोई प्रकाशित ही न की गई हो।',
+  flag_dmarc_multiple_records: 'एक से अधिक DMARC रिकॉर्ड',
+  fd_dmarc_multiple_records: 'RFC 7489 §6.6.3: एक से अधिक रिकॉर्ड होने पर नीति पूरी तरह छोड़ दी जाती है, मानो कोई प्रकाशित ही न की गई हो।',
 
-  flag_dmarc_no_policy: 'DMARC अभिलेख में p= टैग नहीं है',
-  fd_dmarc_no_policy: 'p= अनिवार्य है। उसके बिना अभिलेख अनदेखा कर दिया जाता है।',
+  flag_dmarc_no_policy: 'DMARC रिकॉर्ड में p= टैग नहीं है',
+  fd_dmarc_no_policy: 'p= अनिवार्य है। उसके बिना रिकॉर्ड अनदेखा कर दिया जाता है।',
 
   flag_dmarc_invalid_policy: 'DMARC नीति कोई पहचाना जाने वाला मान नहीं है',
-  fd_dmarc_invalid_policy: 'p= none, quarantine या reject होना चाहिए। किसी और मान पर प्राप्तकर्ता अभिलेख छोड़ देते हैं।',
+  fd_dmarc_invalid_policy: 'p= none, quarantine या reject होना चाहिए। किसी और मान पर प्राप्तकर्ता रिकॉर्ड छोड़ देते हैं।',
 
   flag_dmarc_policy_none: 'DMARC कुछ भी लागू नहीं करता',
   fd_dmarc_policy_none: 'p=none प्राप्तकर्ताओं से कहता है कि रिपोर्ट करें और कुछ न बदलें। जो संदेश SPF और DKIM दोनों के संरेखण में विफल होता है वह ठीक वैसे ही पहुँचाया जाता है जैसे DMARC के बिना। शुरू करने का यही सही तरीका है — और बहुत सारे डोमेन वर्षों से यहीं बैठे हैं, यह मानकर कि वे सुरक्षित हैं।',
@@ -4104,25 +4104,25 @@ OWN.hi = {
   fd_dmarc_no_reporting: 'rua= के बिना कोई रिपोर्ट नहीं आती, यानी यह जानने का कोई रास्ता नहीं कि आपके डोमेन के नाम से कौन भेज रहा है, या नीति कसने पर क्या टूटेगा।',
 
   flag_dmarc_external_reporting_unauthorised: 'बाहरी रिपोर्ट पते ने आपको अधिकृत नहीं किया',
-  fd_dmarc_external_reporting_unauthorised: 'रिपोर्टें किसी और डोमेन को भेजी जा रही हैं, और वह डोमेन उन्हें लेने की सहमति वाला अभिलेख प्रकाशित नहीं करता (RFC 7489 §7.1)। नियम मानने वाले प्राप्तकर्ता कुछ नहीं भेजते। DMARC अभिलेख निर्दोष दिखता है और रिपोर्टें कभी नहीं आतीं — और इसे लगभग हमेशा «रिपोर्ट आने में समय लगता है» कहकर टाल दिया जाता है।',
+  fd_dmarc_external_reporting_unauthorised: 'रिपोर्टें किसी और डोमेन को भेजी जा रही हैं, और वह डोमेन उन्हें लेने की सहमति वाला रिकॉर्ड प्रकाशित नहीं करता (RFC 7489 §7.1)। नियम मानने वाले प्राप्तकर्ता कुछ नहीं भेजते। DMARC रिकॉर्ड निर्दोष दिखता है और रिपोर्टें कभी नहीं आतीं — और इसे लगभग हमेशा “रिपोर्ट आने में समय लगता है” कहकर टाल दिया जाता है।',
 
   flag_mtasts_missing: 'कोई MTA-STS नीति नहीं',
   fd_mtasts_missing: 'STARTTLS अवसरवादी है: जिस भेजने वाले को यह प्रस्ताव दिखता ही नहीं वह खुले पाठ में भेज देता है, और दोनों सर्वरों के बीच खड़े किसी के लिए यह प्रस्ताव हटा देना आसान है। MTA-STS HTTPS पर प्रकाशित करता है कि यह डोमेन हमेशा TLS बोलता है, जिससे उस हमले के लिए वेब PKI तोड़नी पड़ती है।',
 
-  flag_mtasts_multiple_records: 'एक से अधिक MTA-STS TXT अभिलेख',
+  flag_mtasts_multiple_records: 'एक से अधिक MTA-STS TXT रिकॉर्ड',
   fd_mtasts_multiple_records: 'भेजने वाले नहीं बता सकते कि कौन-सा पहचानकर्ता मौजूदा है, इसलिए नीति बदलने पर ताज़ा न हो पाए।',
 
-  flag_mtasts_no_id: 'MTA-STS अभिलेख में पहचानकर्ता नहीं है',
+  flag_mtasts_no_id: 'MTA-STS रिकॉर्ड में पहचानकर्ता नहीं है',
   fd_mtasts_no_id: 'पहचानकर्ता ही वह चीज़ है जिससे भेजने वाला जानता है कि उसके पास रखी नीति की प्रति पुरानी पड़ चुकी है। उसके बिना बदली हुई नीति max_age बीतने तक न उठाई जाए।',
 
   flag_mtasts_policy_host_missing: 'नीति का होस्ट हल नहीं होता',
-  fd_mtasts_policy_host_missing: 'TXT अभिलेख एक नीति की घोषणा करता है, और mta-sts.<डोमेन> का कोई पता नहीं है, इसलिए कोई भी भेजने वाला उसे ला ही नहीं सकता।',
+  fd_mtasts_policy_host_missing: 'TXT रिकॉर्ड एक नीति की घोषणा करता है, और mta-sts.<डोमेन> का कोई पता नहीं है, इसलिए कोई भी भेजने वाला उसे ला ही नहीं सकता।',
 
   flag_mtasts_policy_host_private: 'नीति का होस्ट निजी पता क्षेत्र में हल होता है',
   fd_mtasts_policy_host_private: 'नीति नहीं लाई गई: होस्ट ऐसे पते की ओर है जिससे यह सेवा नहीं जुड़ती।',
 
   flag_mtasts_policy_unreachable: 'MTA-STS नीति लाई नहीं जा सकी',
-  fd_mtasts_policy_unreachable: 'TXT अभिलेख ऐसी नीति का वादा करता है जो वहाँ है ही नहीं, या जिसका प्रमाणपत्र सत्यापित नहीं होता। चूँकि पूरा तंत्र उसी HTTPS प्रमाणपत्र पर टिका है, यहाँ की विफलता का अर्थ है कि भेजने वाले अवसरवादी TLS पर लौट जाते हैं।',
+  fd_mtasts_policy_unreachable: 'TXT रिकॉर्ड ऐसी नीति का वादा करता है जो वहाँ है ही नहीं, या जिसका प्रमाणपत्र सत्यापित नहीं होता। चूँकि पूरा तंत्र उसी HTTPS प्रमाणपत्र पर टिका है, यहाँ की विफलता का अर्थ है कि भेजने वाले अवसरवादी TLS पर लौट जाते हैं।',
 
   flag_mtasts_policy_wrong_content_type: 'नीति text/plain के रूप में नहीं दी जाती',
   fd_mtasts_policy_wrong_content_type: 'RFC 8461 text/plain माँगता है। सख़्त भेजने वाले इसे अस्वीकार कर देंगे।',
@@ -4137,7 +4137,7 @@ OWN.hi = {
   fd_mtasts_mode_testing: 'विफलताओं की सूचना दी जाती है और डाक फिर भी पहुँचा दी जाती है, यानी नीति अभी कुछ भी नहीं बचाती। यह एक पड़ाव है, मंज़िल नहीं।',
 
   flag_mtasts_mode_none: 'MTA-STS अपनी ही नीति से बंद है',
-  fd_mtasts_mode_none: 'mode=none नीति को वापस ले लेता है। यह इसलिए है कि कोई डोमेन MTA-STS को शालीनता से छोड़ सके; यूँ ही पड़ा रहने पर इसका मतलब बस यह है कि अभिलेख कुछ नहीं करता।',
+  fd_mtasts_mode_none: 'mode=none नीति को वापस ले लेता है। यह इसलिए है कि कोई डोमेन MTA-STS को शालीनता से छोड़ सके; यूँ ही पड़ा रहने पर इसका मतलब बस यह है कि रिकॉर्ड कुछ नहीं करता।',
 
   flag_mtasts_no_max_age: 'नीति में max_age नहीं है',
   fd_mtasts_no_max_age: 'max_age अनिवार्य है, और यही नीति को दबाए जाने के प्रति टिकाऊ बनाता है: जिस भेजने वाले ने उसे संचित कर लिया वह लागू करता रहेगा।',
@@ -4154,35 +4154,35 @@ OWN.hi = {
   flag_mtasts_policy_no_mx: 'नीति में कोई मेल सर्वर सूचीबद्ध नहीं',
   fd_mtasts_policy_no_mx: 'बिना mx: प्रविष्टियों वाली नीति किसी से मेल नहीं खाती, इसलिए उसे लागू करने वाले भेजने वालों के पास पहुँचाने की कोई जगह नहीं बचती।',
 
-  flag_tlsrpt_missing: 'कोई TLS-RPT अभिलेख नहीं',
-  fd_tlsrpt_missing: 'एक TXT अभिलेख, और यह जानने का इकलौता रास्ता कि भेजने वाले आपके सर्वरों के साथ TLS तय नहीं कर पा रहे। उसके बिना समाप्त हो चुका प्रमाणपत्र या टूटा STARTTLS आपकी ओर से बिल्कुल दिखाई नहीं देता।',
+  flag_tlsrpt_missing: 'कोई TLS-RPT रिकॉर्ड नहीं',
+  fd_tlsrpt_missing: 'एक TXT रिकॉर्ड, और यह जानने का इकलौता रास्ता कि भेजने वाले आपके सर्वरों के साथ TLS तय नहीं कर पा रहे। उसके बिना समाप्त हो चुका प्रमाणपत्र या टूटा STARTTLS आपकी ओर से बिल्कुल दिखाई नहीं देता।',
 
-  flag_tlsrpt_no_rua: 'TLS-RPT अभिलेख का कोई गंतव्य नहीं',
-  fd_tlsrpt_no_rua: 'rua= के बिना रिपोर्टों के जाने की जगह नहीं है, इसलिए अभिलेख कुछ नहीं करता।',
+  flag_tlsrpt_no_rua: 'TLS-RPT रिकॉर्ड का कोई गंतव्य नहीं',
+  fd_tlsrpt_no_rua: 'rua= के बिना रिपोर्टों के जाने की जगह नहीं है, इसलिए रिकॉर्ड कुछ नहीं करता।',
 
-  flag_dane_missing: 'कोई DANE अभिलेख नहीं',
-  fd_dane_missing: 'TLSA अभिलेख यह तय करते हैं कि मेल सर्वर को कौन-सा प्रमाणपत्र दिखाना है, और इसके लिए सार्वजनिक प्राधिकरणों के बजाय DNSSEC पर टिकते हैं। दो परिवहन तंत्रों में यह अधिक मज़बूत है — और इसके लिए हस्ताक्षरित ज़ोन चाहिए, जो आमतौर पर इसके उपयोग में न होने का कारण भी है।',
+  flag_dane_missing: 'कोई DANE रिकॉर्ड नहीं',
+  fd_dane_missing: 'TLSA रिकॉर्ड यह तय करते हैं कि मेल सर्वर को कौन-सा प्रमाणपत्र दिखाना है, और इसके लिए सार्वजनिक प्राधिकरणों के बजाय DNSSEC पर टिकते हैं। दो परिवहन तंत्रों में यह अधिक मज़बूत है — और इसके लिए हस्ताक्षरित ज़ोन चाहिए, जो आमतौर पर इसके उपयोग में न होने का कारण भी है।',
 
-  flag_dane_partial: 'केवल कुछ मेल सर्वरों के पास DANE अभिलेख हैं',
+  flag_dane_partial: 'केवल कुछ मेल सर्वरों के पास DANE रिकॉर्ड हैं',
   fd_dane_partial: 'भेजने वाले सर्वर प्राथमिकता से चुनते हैं, इसलिए जिस समूह में केवल कुछ होस्ट तय हैं वह केवल कुछ ही समय सुरक्षित रहता है।',
 
-  flag_dane_without_dnssec: 'अहस्ताक्षरित ज़ोन में TLSA अभिलेख',
-  fd_dane_without_dnssec: 'DANE पूरी तरह DNSSEC पर टिका है। हस्ताक्षरों के बिना जो MX अभिलेख बदल सकता है वह TLSA भी बदल सकता है, इसलिए यह बंधन कुछ भी नहीं बचाता, बस बचाता हुआ दिखता है।',
+  flag_dane_without_dnssec: 'अहस्ताक्षरित ज़ोन में TLSA रिकॉर्ड',
+  fd_dane_without_dnssec: 'DANE पूरी तरह DNSSEC पर टिका है। हस्ताक्षरों के बिना जो MX रिकॉर्ड बदल सकता है वह TLSA भी बदल सकता है, इसलिए यह बंधन कुछ भी नहीं बचाता, बस बचाता हुआ दिखता है।',
 
-  flag_dane_mismatch: 'TLSA अभिलेख प्रस्तुत प्रमाणपत्र से मेल नहीं खाता',
-  fd_dane_mismatch: 'सर्वर ऐसा प्रमाणपत्र दिखा रहा है जिसकी अनुमति उसका अपना DANE अभिलेख नहीं देता। DANE जाँचने वाला हर भेजने वाला पहुँचाने से इनकार कर देगा — इससे डाक रुक जाती है।',
+  flag_dane_mismatch: 'TLSA रिकॉर्ड प्रस्तुत प्रमाणपत्र से मेल नहीं खाता',
+  fd_dane_mismatch: 'सर्वर ऐसा प्रमाणपत्र दिखा रहा है जिसकी अनुमति उसका अपना DANE रिकॉर्ड नहीं देता। DANE जाँचने वाला हर भेजने वाला पहुँचाने से इनकार कर देगा — इससे डाक रुक जाती है।',
 
-  flag_dane_pkix_usage: 'किसी TLSA अभिलेख में PKIX उपयोग है',
+  flag_dane_pkix_usage: 'किसी TLSA रिकॉर्ड में PKIX उपयोग है',
   fd_dane_pkix_usage: 'उपयोग 0 और 1 यह भी माँगते हैं कि प्रमाणपत्र सार्वजनिक प्राधिकरणों से भी सत्यापित हो। RFC 7672 §3.1 SMTP के लिए दोनों को मना करता है, क्योंकि डाक के लिए यह जाँच करने का कोई सर्वसम्मत तरीका है ही नहीं।',
 
-  flag_dane_full_certificate: 'किसी TLSA अभिलेख ने पूरा प्रमाणपत्र बाँध रखा है',
-  fd_dane_full_certificate: 'मिलान प्रकार 0 सारांश के बजाय पूरा प्रमाणपत्र रखता है। यह काम करता है, अभिलेख को बड़ा बनाता है और हर नवीनीकरण पर बदलने को बाध्य करता है।',
+  flag_dane_full_certificate: 'किसी TLSA रिकॉर्ड ने पूरा प्रमाणपत्र बाँध रखा है',
+  fd_dane_full_certificate: 'मिलान प्रकार 0 सारांश के बजाय पूरा प्रमाणपत्र रखता है। यह काम करता है, रिकॉर्ड को बड़ा बनाता है और हर नवीनीकरण पर बदलने को बाध्य करता है।',
 
   flag_port_25_blocked_from_here: 'जहाँ यह सेवा चलती है वहाँ बाहर जाने वाला पोर्ट 25 अवरुद्ध है',
   fd_port_25_blocked_from_here: 'यह हमारे नेटवर्क की बात है, आपके की नहीं। अधिकांश होस्टिंग प्रदाता पोर्ट 25 पर बाहर जाने वाले कनेक्शन डिफ़ॉल्ट रूप से रोक देते हैं। इसीलिए STARTTLS, असली प्रमाणपत्र से DANE का मिलान और रिले की जाँच नहीं हो सकी, और श्रेणी जो कुछ संयोग से पहुँच में था उससे निकालने के बजाय रोक ली गई है।',
 
   flag_mx_not_reachable_on_25: 'पोर्ट 25 पर किसी मेल सर्वर ने उत्तर नहीं दिया',
-  fd_mx_not_reachable_on_25: 'MX अभिलेख ऐसे होस्टों का नाम लेते हैं जो डाक पहुँचाने वाले पोर्ट पर कनेक्शन नहीं लेते। इस डोमेन पर कुछ भी नहीं पहुँचाया जा सकता।',
+  fd_mx_not_reachable_on_25: 'MX रिकॉर्ड ऐसे होस्टों का नाम लेते हैं जो डाक पहुँचाने वाले पोर्ट पर कनेक्शन नहीं लेते। इस डोमेन पर कुछ भी नहीं पहुँचाया जा सकता।',
 
   flag_no_starttls: 'कोई मेल सर्वर STARTTLS नहीं देता',
   fd_no_starttls: 'इस सर्वर तक पहुँचाया गया हर संदेश बिना कूटलेखन के इंटरनेट पार करता है और रास्ते की हर चीज़ के लिए पढ़ने योग्य होता है। STARTTLS देने की क़ीमत एक प्रमाणपत्र और विन्यास की एक पंक्ति है।',
@@ -4200,7 +4200,7 @@ OWN.hi = {
   fd_banner_reveals_version: 'यह उसके लिए छोटा-सा उपहार है जो उसी संस्करण की ज्ञात ख़ामी वाले होस्ट खोज रहा है। अभिवादन में कुछ भी लिखा जा सकता है।',
 
   flag_open_relay: 'सर्वर अजनबियों की डाक आगे भेजता है',
-  fd_open_relay: 'उसने एक असंबद्ध भेजने वाले से असंबद्ध पाने वाले तक का संदेश स्वीकार कर लिया। कोई भी इसका उपयोग आपके नाम से स्पैम भेजने के लिए कर सकता है, और यदि पहले से नहीं है तो कुछ ही घंटों में अवरोध सूचियों में आ जाएगा। यह आज ही ठीक होता है। (जाँच RCPT TO पर रुकी और RSET भेजा — कोई संदेश नहीं भेजा गया।)',
+  fd_open_relay: 'उसने एक असंबद्ध भेजने वाले से असंबद्ध पाने वाले तक का संदेश स्वीकार कर लिया। कोई भी इसका उपयोग आपके नाम से स्पैम भेजने के लिए कर सकता है, और यदि पहले से नहीं है तो कुछ ही घंटों में अवरोध सूचियों में आ जाएगा। इसे आज ही ठीक करना चाहिए। (जाँच RCPT TO पर रुकी और RSET भेजा — कोई संदेश नहीं भेजा गया।)',
 
   flag_no_size_extension: 'सर्वर SIZE की घोषणा नहीं करता',
   fd_no_size_extension: 'SIZE के बिना भेजने वाला यह नहीं जान सकता कि बड़ा संदेश स्वीकार होगा या नहीं, जब तक वह उसे पूरा भेज न दे।',
@@ -4208,11 +4208,11 @@ OWN.hi = {
   flag_submission_without_starttls: 'भेजने वाला पोर्ट STARTTLS नहीं देता',
   fd_submission_without_starttls: 'पोर्ट 587 वहीं है जहाँ मेल क्लाइंट प्रमाणीकरण करते हैं। STARTTLS के बिना वे प्रमाण-पत्र नेटवर्क को खुले पाठ में पार करते हैं।',
 
-  flag_rdns_missing: 'किसी मेल सर्वर के पते का PTR अभिलेख नहीं है',
+  flag_rdns_missing: 'किसी मेल सर्वर के पते का PTR रिकॉर्ड नहीं है',
   fd_rdns_missing: 'उल्टे DNS का न होना उन सबसे आम कारणों में से एक है जिनसे नए सर्वर की डाक टाली जाती है या स्पैम में डाल दी जाती है — और उन कारणों में से एक जिन्हें पाने वाला पक्ष सबसे कम समझाता है।',
 
   flag_rdns_not_confirmed: 'उल्टा DNS वापस हल नहीं होता',
-  fd_rdns_not_confirmed: 'PTR अभिलेख एक नाम देता है, और वह नाम इस पते पर हल नहीं होता। प्राप्तकर्ता आने-जाने की जाँच इसीलिए करते हैं कि उसके लिए दो अलग-अलग पक्षों को अपना-अपना हिस्सा करना पड़ता है।',
+  fd_rdns_not_confirmed: 'PTR रिकॉर्ड एक नाम देता है, और वह नाम इस पते पर हल नहीं होता। प्राप्तकर्ता आने-जाने की जाँच इसीलिए करते हैं कि उसके लिए दो अलग-अलग पक्षों को अपना-अपना हिस्सा करना पड़ता है।',
 
   flag_rdns_none_confirmed: 'किसी मेल सर्वर के पास पुष्ट उल्टा DNS नहीं है',
   fd_rdns_none_confirmed: 'एक भी पता आने-जाने की जाँच पास नहीं करता। जो प्राप्तकर्ता इसे तौलते हैं उनके यहाँ देरी और स्पैम में जाने की अपेक्षा रखें।',
@@ -4222,7 +4222,7 @@ OWN.ar = {
   title: 'فحص البريد — SPF وDKIM وDMARC وMTA-STS وDANE لأي نطاق',
   title_short: 'فحص البريد',
   h1: 'فحص البريد',
-  subtitle: 'يُفتح SPF عبر كل include ويُعدّ في مواجهة حد العشرة، ومحاذاة DMARC وتقاريره، وحماية النقل تُختبر على اتصال حقيقي',
+  subtitle: 'يُفتح SPF عبر كل include ويُحتسب ضمن حد العشرة، ومحاذاة DMARC وتقاريره، وحماية النقل تُختبر على اتصال حقيقي',
   ph_host: 'example.com',
   hero_label: 'النطاق قيد الفحص',
   empty_hint: 'أدخل اسم نطاق. يفتح الفحص سجل SPF عبر كل include، ويجرّب معرّفات DKIM التي تستعملها المنصات الكبرى، ويقرأ سياسة DMARC، ويجلب سياسة MTA-STS عبر HTTPS، ويفتح جلسات SMTP للقراءة فقط مع خوادم البريد. ولا تُرسَل أي رسالة على الإطلاق.',
@@ -4326,7 +4326,7 @@ OWN.ar = {
 
   note_spf: 'يسمح RFC 7208 بعشرة حدود تستدعي استعلام DNS في التقييم كله، ويُحسب كل include داخل كل include. وبعد العاشر يجب على المستقبِل أن يعيد permerror — وpermerror يعني أن SPF لا ينطبق إطلاقًا، تمامًا كما لو لم يكن هناك سجل.',
   note_dmarc: 'مع p=none لا يُطبَّق شيء: الرسالة التي تخفق في محاذاة SPF وDKIM معًا تُسلَّم كما كانت. هو المكان الصحيح للبدء والخطأ للبقاء.',
-  note_transport: 'STARTTLS انتهازي: المرسِل الذي يُنتزع منه العرض يمضي ببساطة بنص مكشوف. وMTA-STS وDANE هما ما يحوّل تلك الإمكانية إلى ضمانة.',
+  note_transport: 'STARTTLS اختياري: المرسِل الذي يُنتزع منه إعلان التشفير يمضي ببساطة بنص مكشوف. وMTA-STS وDANE هما ما يحوّل تلك الإمكانية إلى ضمانة.',
   note_sessions: 'كل الجلسات للقراءة فقط. يتوقف اختبار الترحيل عند RCPT TO ويرسل RSET؛ ولا يُصدَر أمر DATA أبدًا، فلا يمكن إرسال أي رسالة.',
   note_rdns: 'سجل PTR وحده لا يثبت شيئًا — فمالك كتلة العناوين يستطيع أن يضع فيها أي اسم. ما يتحقّق منه المستقبِلون هو أن ذلك الاسم يعود ليترجَم إلى العنوان نفسه.',
 
@@ -4363,7 +4363,7 @@ OWN.ar = {
   cap_scan_incomplete: 'كان الفحص ناقصًا، فلم يُمنح تقدير',
 
   flag_null_mx: 'النطاق يعلن أنه لا يتعامل مع البريد',
-  fd_null_mx: 'سجل MX واحد بأولوية 0 يشير إلى الجذر هو ما يعنيه RFC 7505 بـ«هذا النطاق لا يرسل بريدًا ولا يستقبله». قرار مقصود، وأفضل بكثير من غياب MX تمامًا — فبغيابه يرتد المرسِلون إلى سجل العنوان.',
+  fd_null_mx: 'سجل MX واحد بأولوية 0 يشير إلى الجذر هو ما يعنيه RFC 7505 بـ«هذا النطاق لا يرسل بريدًا ولا يستقبله». قرار مقصود، وأفضل بكثير من غياب MX تمامًا — فبغيابه يرتد المرسِلون إلى سجل A.',
 
   flag_no_mx: 'لا سجلات MX',
   fd_no_mx: 'لا شيء يبيّن إلى أين يذهب بريد هذا النطاق، ولا عنوان بديل يُرتدّ إليه، فالتسليم ببساطة غير ممكن.',
@@ -4426,7 +4426,7 @@ OWN.ar = {
   fd_spf_redirect_after_all: 'في السجل آلية «all» وredirect معًا. و«all» تنطبق دائمًا، فيتوقّف التقييم عندها ويبقى redirect نصًّا ميتًا.',
 
   flag_spf_record_long: 'سجل SPF طويل',
-  fd_spf_record_long: 'تُقسَّم السجلات الطويلة إلى عدة سلاسل على السلك. وهذا في ذاته سليم — يصلها المستقبِلون دون فاصل — لكنه بالضبط الموضع الذي تبدأ عنده المحلّلات التي تصلها بمسافة في إفساد السجل.',
+  fd_spf_record_long: 'تُقسَّم السجلات الطويلة إلى عدة سلاسل أثناء النقل. وهذا في ذاته سليم — يصلها المستقبِلون دون فاصل — لكنه بالضبط الموضع الذي تبدأ عنده المحلّلات التي تصلها بمسافة في إفساد السجل.',
 
   flag_spf_include_loop: 'include يعود إلى موضع مررنا به من قبل',
   fd_spf_include_loop: 'يدور الفتح في حلقة. يتوقّف المستقبِل عند حد الاستعلامات ويعيد خطأً دائمًا.',
@@ -4441,7 +4441,7 @@ OWN.ar = {
   fd_dkim_key_revoked: 'نُشر السجل بـp= فارغة، وهو ما يُبطل المفتاح. تلك هي الطريقة الصحيحة لإحالة مفتاح إلى التقاعد — وسجل بقي هكذا شهورًا يعني عادةً تبديل مفاتيح لم يُتمّه أحد.',
 
   flag_dkim_key_malformed: 'أحد مفاتيح DKIM لا يمكن تحليله',
-  fd_dkim_key_malformed: 'قيمة p= ليست مادة مفتاح صالحة. وكل توقيع يُصنع بها سيُخفق في التحقّق.',
+  fd_dkim_key_malformed: 'قيمة p= لا تُقرأ كمفتاح صالح. وكل توقيع يُصنع بها سيُخفق في التحقّق.',
 
   flag_dkim_in_test_mode: 'أحد سجلات DKIM في وضع الاختبار',
   fd_dkim_in_test_mode: 't=y يخبر المستقبِلين أن يعاملوا التوقيع المخفق كأن DKIM غير مستعمل. موضعه أثناء الإطلاق ولا موضع له غير ذلك.',
@@ -4579,7 +4579,7 @@ OWN.ar = {
   fd_banner_reveals_version: 'هديّة صغيرة لمن يبحث عن مضيفين فيهم عيب معروف في ذلك الإصدار بالضبط. ويمكن أن يُكتب في التحية أي شيء.',
 
   flag_open_relay: 'الخادم يرحّل بريد الغرباء',
-  fd_open_relay: 'قبِل رسالةً من مرسِل لا صلة له إلى مستقبِل لا صلة له. يستطيع أي أحد استعماله لإرسال بريد مزعج باسمك، وسيدخل قوائم الحجب خلال ساعات إن لم يكن قد دخلها. هذا يُصلَح اليوم. (توقّف الاختبار عند RCPT TO وأرسل RSET — ولم تُرسَل أي رسالة.)',
+  fd_open_relay: 'قبِل رسالةً من مرسِل لا صلة له إلى مستقبِل لا صلة له. يستطيع أي أحد استعماله لإرسال بريد مزعج باسمك، وسيدخل قوائم الحجب خلال ساعات إن لم يكن قد دخلها. ويجب إصلاح هذا اليوم. (توقّف الاختبار عند RCPT TO وأرسل RSET — ولم تُرسَل أي رسالة.)',
 
   flag_no_size_extension: 'الخادم لا يعلن SIZE',
   fd_no_size_extension: 'بغير SIZE لا يستطيع المرسِل أن يعرف إن كانت رسالة كبيرة ستُقبل قبل أن ينقلها كاملة.',

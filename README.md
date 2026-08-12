@@ -144,7 +144,7 @@ npm run scan -- example.com           # the checker without the web server
 The shared packages are git dependencies, so `npm install` needs `git`:
 
 ```json
-"@sharapov/service-kit": "git+https://github.com/sharapov-outsource/service-kit.git#v1.4.4",
+"@sharapov/service-kit": "git+https://github.com/sharapov-outsource/service-kit.git#v1.4.5",
 "@sharapov/dns-wire":    "git+https://github.com/sharapov-outsource/dns-wire.git#v1.0.0"
 ```
 
@@ -325,7 +325,7 @@ npm run scan -- example.com           # проверялка без веб-се�
 Общие пакеты подключены как git-зависимости, поэтому `npm install` требует `git`:
 
 ```json
-"@sharapov/service-kit": "git+https://github.com/sharapov-outsource/service-kit.git#v1.4.4",
+"@sharapov/service-kit": "git+https://github.com/sharapov-outsource/service-kit.git#v1.4.5",
 "@sharapov/dns-wire":    "git+https://github.com/sharapov-outsource/dns-wire.git#v1.0.0"
 ```
 
